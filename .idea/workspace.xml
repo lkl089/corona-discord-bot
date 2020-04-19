@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6619ea7c-5f91-4fb5-b1d3-e131e628aec7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZQTYDLcqYEptlXHhmWzbk7LGN9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="corona discord bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\KJH\.virtualenvs\CoronaCrawler-master\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="corona discord bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\KJH\.virtualenvs\CoronaCrawler-master\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.bot" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6619ea7c-5f91-4fb5-b1d3-e131e628aec7" name="Default Changelist" comment="" />
+      <created>1584770364101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584770364101</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1145" y="561" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584770593580">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1145" y="561" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1584770593580" />
+    <state x="1471" y="672" key="FileChooserDialogImpl" timestamp="1584770510265">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1471" y="672" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1584770510265" />
+    <state width="1510" height="225" key="GridCell.Tab.0.bottom" timestamp="1587314119927">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="225" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587314119927" />
+    <state width="1510" height="225" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1587214387536" />
+    <state width="1362" height="215" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585203307767" />
+    <state width="1510" height="225" key="GridCell.Tab.0.center" timestamp="1587314119927">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="225" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587314119927" />
+    <state width="1510" height="225" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1587214387536" />
+    <state width="1362" height="215" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585203307767" />
+    <state width="1510" height="225" key="GridCell.Tab.0.left" timestamp="1587314119927">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="225" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587314119927" />
+    <state width="1510" height="225" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1587214387536" />
+    <state width="1362" height="215" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585203307767" />
+    <state width="1510" height="225" key="GridCell.Tab.0.right" timestamp="1587314119927">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="225" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587314119927" />
+    <state width="1510" height="225" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1587214387536" />
+    <state width="1362" height="215" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585203307767" />
+    <state width="1510" height="278" key="GridCell.Tab.1.bottom" timestamp="1586693594764">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="278" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1586693594764" />
+    <state width="1510" height="278" key="GridCell.Tab.1.center" timestamp="1586693594764">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="278" key="GridCell.Tab.1.center/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1586693594764" />
+    <state width="1510" height="278" key="GridCell.Tab.1.left" timestamp="1586693594764">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="278" key="GridCell.Tab.1.left/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1586693594764" />
+    <state width="1510" height="278" key="GridCell.Tab.1.right" timestamp="1586693594764">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1510" height="278" key="GridCell.Tab.1.right/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1586693594764" />
+    <state x="261" y="510" width="994" height="712" key="SettingsEditor" timestamp="1585439952660">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="261" y="510" width="994" height="712" key="SettingsEditor/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1585439952660" />
+    <state x="1194" y="548" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1584770420137" />
+    <state x="1395" y="730" key="com.intellij.ide.util.TipDialog" timestamp="1585439742952">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1395" y="730" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1585439742952" />
+    <state x="1395" y="730" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585202277414" />
+    <state x="462" y="328" width="1186" height="632" key="dock-window-1" timestamp="1587291009858">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="462" y="328" width="1186" height="632" key="dock-window-1/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587291009858" />
+    <state x="1053" y="166" width="1186" height="639" key="dock-window-2" timestamp="1587295354142">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1053" y="166" width="1186" height="639" key="dock-window-2/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1587295354142" />
+    <state x="518" y="358" width="672" height="678" key="search.everywhere.popup" timestamp="1585153351688">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="518" y="358" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1585153351688" />
+  </component>
+</project>
