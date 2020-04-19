@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import discord, asyncio # 디스코드 모듈과, 보조 모듈인 asyncio를 불러옵니다.
 from datetime import datetime
-from data import data,checkurl,world_data
+from data import data,checkurl,world_data,mask
 from data.checkurl import update
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
@@ -11,16 +11,29 @@ now = datetime.now()
 month = now.strftime("%m")
 day = now.strftime("%d")
 
-
+ch = 0
+for message in client.guilds:
+    ch += len(message.channels)
 @client.event
-async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니다.
-    # 봇이 "반갑습니다"를 플레이 하게 됩니다.
-    # discord.Status.online에서 dnd로 바꾸면 "다른 용무 중", idle로 바꾸면 "자리 비움"
 
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("한국 확진자수 : "+data.confirmed+"명"))
+async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니다.
     print("봇 시작") # I'm Ready! 문구를 출력합니다.
+    #
+    await bt(['한국 확진자수 : '+data.confirmed+'명', '아시아 확진자수 : '+world_data.as_confirmed+'명',
+              '유럽 확진자수 : '+world_data.eu_confirmed+'명','북미 확진자수 : '+world_data.na_confirmed+'명',
+              '남미 확진자수 : '+world_data.sa_confirmed+'명','아프리카 확진자수 : '+world_data.af_confirmed+'명',
+              '오세아니아 확진자수 : '+world_data.oc_confirmed+'명'])
     #print(client.user.name) # 봇의 이름을 출력합니다.
     #print(client.user.id) # 봇의 Discord 고유 ID를 출력합니다.
+
+async def bt(zz):
+#    await client.wait_until_ready()
+
+    while not client.is_closed():
+        for message in zz:
+            await client.change_presence(status=discord.Status.online, activity=discord.Game(message))
+            await asyncio.sleep(5) #5초마다 메세지 변경
+            print(message)
 
 @client.event
 async def on_message(message, month=month, day=day, today=checkurl.today): # 메시지가 들어 올 때마다 가동되는 구문입니다.
@@ -34,7 +47,6 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         embed.add_field(name="!현재상황", value="한국의 코로나 상황을 알려줍니다.",inline=False)
         embed.add_field(name="!격리해제", value="한국의 완치(격리해제) 상황을 알려줍니다.",inline=False)
         embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.",inline=False)
-        embed.add_field(name="!각나라별이름", value="[추가예정]각 나라별 코로나 상황을 알려줍니다.",inline=False)
         embed.add_field(name="!국가목록", value="[추가예정]각 국가명 입력시 해당 국가의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="[추가예정]각 대륙별 코로나 상황을 알려줍니다.", inline=False)
         #embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
@@ -97,11 +109,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         country = "아시아"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0xa83232)
         embed.add_field(name="누적 확진자수",
-                        value=world_data.w_confirmed + "명 :small_red_triangle:" + world_data.w_prev_confirmed,
+                        value=world_data.as_confirmed + "명 :small_red_triangle:" + world_data.as_prev_confirmed,
                         inline=False)
-        embed.add_field(name="격리중", value=world_data.w_active + "명", inline=False)
-        embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
-        embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
+        embed.add_field(name="격리중", value=world_data.as_active + "명", inline=False)
+        embed.add_field(name="격리해제", value=world_data.as_rescued + "명", inline=False)
+        embed.add_field(name="사망자", value=world_data.as_death + "명 :small_red_triangle:" + world_data.as_prev_death,
                         inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         embed.set_footer(text=update)
@@ -112,11 +124,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         country = "유럽"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0xa83232)
         embed.add_field(name="누적 확진자수",
-                        value=world_data.w_confirmed + "명 :small_red_triangle:" + world_data.w_prev_confirmed,
+                        value=world_data.eu_confirmed + "명 :small_red_triangle:" + world_data.eu_prev_confirmed,
                         inline=False)
-        embed.add_field(name="격리중", value=world_data.w_active + "명", inline=False)
-        embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
-        embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
+        embed.add_field(name="격리중", value=world_data.eu_active + "명", inline=False)
+        embed.add_field(name="격리해제", value=world_data.eu_rescued + "명", inline=False)
+        embed.add_field(name="사망자", value=world_data.eu_death + "명 :small_red_triangle:" + world_data.eu_prev_death,
                         inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         embed.set_footer(text=update)
@@ -127,11 +139,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         country = "북아메리카"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0xa83232)
         embed.add_field(name="누적 확진자수",
-                        value=world_data.w_confirmed + "명 :small_red_triangle:" + world_data.w_prev_confirmed,
+                        value=world_data.na_confirmed + "명 :small_red_triangle:" + world_data.na_prev_confirmed,
                         inline=False)
-        embed.add_field(name="격리중", value=world_data.w_active + "명", inline=False)
-        embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
-        embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
+        embed.add_field(name="격리중", value=world_data.na_active + "명", inline=False)
+        embed.add_field(name="격리해제", value=world_data.na_rescued + "명", inline=False)
+        embed.add_field(name="사망자", value=world_data.na_death + "명 :small_red_triangle:" + world_data.na_prev_death,
                         inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         embed.set_footer(text=update)
@@ -142,11 +154,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         country = "남아메리카"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0xa83232)
         embed.add_field(name="누적 확진자수",
-                        value=world_data.w_confirmed + "명 :small_red_triangle:" + world_data.w_prev_confirmed,
+                        value=world_data.sa_confirmed + "명 :small_red_triangle:" + world_data.sa_prev_confirmed,
                         inline=False)
-        embed.add_field(name="격리중", value=world_data.w_active + "명", inline=False)
-        embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
-        embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
+        embed.add_field(name="격리중", value=world_data.sa_active + "명", inline=False)
+        embed.add_field(name="격리해제", value=world_data.sa_rescued + "명", inline=False)
+        embed.add_field(name="사망자", value=world_data.sa_death + "명 :small_red_triangle:" + world_data.sa_prev_death,
                         inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         embed.set_footer(text=update)
@@ -157,11 +169,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         country = "아프리카"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0xa83232)
         embed.add_field(name="누적 확진자수",
-                        value=world_data.w_confirmed + "명 :small_red_triangle:" + world_data.w_prev_confirmed,
+                        value=world_data.af_confirmed + "명 :small_red_triangle:" + world_data.af_prev_confirmed,
                         inline=False)
-        embed.add_field(name="격리중", value=world_data.w_active + "명", inline=False)
-        embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
-        embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
+        embed.add_field(name="격리중", value=world_data.af_active + "명", inline=False)
+        embed.add_field(name="격리해제", value=world_data.af_rescued + "명", inline=False)
+        embed.add_field(name="사망자", value=world_data.af_death + "명 :small_red_triangle:" + world_data.af_prev_death,
                         inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         embed.set_footer(text=update)
