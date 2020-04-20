@@ -3,6 +3,11 @@ import discord, asyncio # 디스코드 모듈과, 보조 모듈인 asyncio를 �
 from datetime import datetime
 from data import data,checkurl,world_data,mask
 from data.checkurl import update
+from urllib.parse import quote
+from urllib.request import Request, urlopen
+import ssl
+import json
+
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
 token = "Njg5MTM5MjQzNzg4MTQwNjQx.Xm-hLg.W2FcooOgwrH7TopolcvGR9HEryc"
@@ -53,6 +58,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         await message.channel.send(embed=embed)
         # DM으로 메시지를 보냅니다.
         #await message.author.send("응답")
+
+    if message.content == "!마스크":
+
+        embed = discord.Embed(title=month + "월 " + day + "일 "  + " 마스크 상황",description=mask.d[mask.y]+"요일 마스크 구매는 "+mask.buy_mask+"이 가능합니다\n"
+                              +'현재 주변 '+str(mask.store_count)+'곳에서 판매중입니다.', color=0x9fd6f4)
+   #     embed.add_field(name="누적 확진자수", value=data.confirmed + "명 :small_red_triangle:" + data.prev_confimed, inline=True)
+        embed.set_image(url=mask.maps_url)
+        embed.set_footer(text="현재 접속중인 ip를 기준으로 "+str(mask.dist)+"m 이내의 판매처를 검색합니다. \n현재 위치 오차는 약 "+str(mask.accu)+"m 입니다 ")
+        await message.channel.send(embed=embed)
 
     if message.content == "!현재상황":
         #기본적으로 한국의 정보를 가져옴
