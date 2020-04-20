@@ -36,7 +36,7 @@ remain_mask = mask_info[6]
 stock = mask_info[7]
 lat= mask_info[3]
 lng= mask_info[4]
-type= mask_info[8]
+#type= mask_info[8]
 #print(all_store)
 #print(all_addr)
 #print(remain_mask)
@@ -58,7 +58,7 @@ for i in range(int(store_count)+1):
     stock = mask_info[i]
     lat= mask_info[i]
     lng= mask_info[i]
-    type = mask_info[i]
+#    type = mask_info[i]
 
     location = str(lat['lat']) + ',' + str(lng['lng'])
     mark.append(location)
@@ -77,7 +77,7 @@ for i in range(int(store_count)+1):
     print('=========')
     print(location)                             #위도,경도
     print('=========')
-    print(type['type'])                         #판매처 유형 01=약국, 02=우체국, 03=농협
+#    print(type['type'])                         #판매처 유형 01=약국, 02=우체국, 03=농협
     print('=========')
 marker = []
 print(mark)
