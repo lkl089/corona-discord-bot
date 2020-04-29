@@ -11,7 +11,9 @@ import json
 
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
-token = "Njg5MTM5MjQzNzg4MTQwNjQx.Xm-hLg.W2FcooOgwrH7TopolcvGR9HEryc"
+token1 = token.token
+print(token1)
+prefix = "!" #접두어
 
 now = datetime.now()
 month = now.strftime("%m")
