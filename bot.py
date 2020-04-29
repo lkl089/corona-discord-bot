@@ -71,26 +71,27 @@ async def on_message(message, month=month, day=day, today=checkurl.today): # 메
         embed.set_image(url=mask.maps_url)
         embed.set_footer(text="현재 접속중인 ip를 기준으로 "+str(mask.dist)+"m 이내의 판매처를 검색합니다. \n현재 위치 오차는 약 "+str(mask.accu)+"m 입니다 ")
         await message.channel.send(embed=embed)
-        print(message.author.id)
+#        print(message.author.id)
 
-        u_id = message.author.id
-        options = webdriver.ChromeOptions()
-        #options.add_argument('--headless')
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--lang=ko_KR")
-        options.add_argument(
-            'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36')
+#        u_id = message.author.id
+#        options = webdriver.ChromeOptions()
+#        #options.add_argument('--headless')
+#        options.add_argument("--no-sandbox")
+#         options.add_argument("--disable-gpu")
+#        options.add_argument("--lang=ko_KR")
+#        options.add_argument(
+#            'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36')
 
-        driver = webdriver.Chrome('./data/chromedriver.exe', chrome_options=options)
-        driver.get('https://discordresolver.c99.nl/index.php')
-        driver.implicitly_wait(7)
-        driver.find_element_by_xpath('/html/body/div/div[2]/div/form/input').send_keys(u_id)
-        driver.find_element_by_xpath('/html/body/div/div[2]/div/form/button').click()
-        driver.implicitly_wait(4)
-        u_ip = driver.find_element_by_xpath('/html/body/div/div[3]/center/h1').text
-        print(u_ip)
-
+#        driver = webdriver.Chrome('./data/chromedriver.exe', chrome_options=options)
+#        driver.get('https://discordresolver.c99.nl/index.php')
+#        driver.implicitly_wait(7)
+#        driver.find_element_by_xpath('/html/body/div/div[2]/div/form/input').send_keys(u_id)
+#        driver.find_element_by_xpath('/html/body/div/div[2]/div/form/button').click()
+#        driver.implicitly_wait(4)
+#        u_ip = driver.find_element_by_xpath('/html/body/div/div[3]/center/h1').text
+#        print(u_ip)
+#       userid를 이용해 외부사이트에서 ip확인하는 소스. 사이트 작동이 이상해서 폐기 
+    
     if message.content == prefix+"현재상황":
         #기본적으로 한국의 정보를 가져옴
         country = "한국"
