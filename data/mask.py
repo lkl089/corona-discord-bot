@@ -1,16 +1,16 @@
-import pprint
 import requests
 from bs4 import BeautifulSoup
 import json
 from datetime import datetime
+from data import token
 
-API_KEY = 'AIzaSyACHYbNNanITaj7X7-IxkJZ07l9vwhgD54'
+API_KEY = token.API_KEY
 url = f'https://www.googleapis.com/geolocation/v1/geolocate?key='+API_KEY
-data = {
-    'considerIp': True,
-}
+#data = {
+#    'considerIp': True,
+#}
 
-result = requests.post(url, data)
+result = requests.post(url)
 print(result.text)
 #requests.get(result.text).json()
 get_data = result.json()
