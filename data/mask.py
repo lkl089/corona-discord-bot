@@ -46,8 +46,6 @@ lng= mask_info[4]
 i=0;
 mark = []
 for i in range(int(store_count)+1):
-    global shop
-    shop=['약국','우체국','농협']
     if i == store_count :
         print('mask info end')
         continue
