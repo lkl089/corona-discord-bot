@@ -196,8 +196,8 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         print(short_url)
         embed = discord.Embed(title=month + "월 " + day + "일 " + " 마스크 상황",
                               description=mask.d[mask.y] + "요일 마스크 구매는 " + mask.buy_mask + "이 가능합니다\n"
-                                          + '현재 주변 ' + str(int(store_count)) + '곳에서 판매중입니다.', color=0x9fd6f4)
-        embed.set_image(url=short_url)
+                                          + '현재 주변 ' + str(int(store_count)) + '곳에서 판매중입니다.\n'
+                              +'지도 : '+short_url, color=0x9fd6f4)
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
 

@@ -6,9 +6,9 @@ from data import token
 
 API_KEY = token.API_KEY
 url = f'https://www.googleapis.com/geolocation/v1/geolocate?key='+API_KEY
-#data = {
-#    'considerIp': True,
-#}
+data = {
+    'considerIp': True,
+}
 
 result = requests.post(url)
 print(result.text)
