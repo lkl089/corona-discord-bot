@@ -4,8 +4,9 @@ import os
 import sys
 import discord, asyncio
 from datetime import datetime
-from data import data, checkurl, world_data, mask, token
+from data import checkurl, world_data, mask
 from data.checkurl import update
+import data.data as korea
 from data import token
 import requests
 from urllib.parse import quote
@@ -32,7 +33,7 @@ for message in client.guilds:
 async def on_ready():
     print("봇 시작")
     #
-    await bt(['한국 확진자수 : ' + data.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
+    await bt(['한국 확진자수 : ' + korea.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
               '유럽 확진자수 : ' + world_data.eu_confirmed + '명', '북미 확진자수 : ' + world_data.na_confirmed + '명',
               '남미 확진자수 : ' + world_data.sa_confirmed + '명', '아프리카 확진자수 : ' + world_data.af_confirmed + '명',
               '오세아니아 확진자수 : ' + world_data.oc_confirmed + '명', '만든사람 : KJH'])
@@ -204,11 +205,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         # 기본적으로 한국의 정보를 가져옴
         country = "한국"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-        embed.add_field(name="누적 확진자수", value=data.confirmed + "명 :small_red_triangle:" + data.prev_confimed,
+        embed.add_field(name="누적 확진자수", value=korea.confirmed + "명 :small_red_triangle:" + korea.prev_confimed,
                         inline=True)
-        embed.add_field(name="격리해제", value=data.rescued + "명 :small_red_triangle:" + data.prev_rescured, inline=True)
-        embed.add_field(name="격리중", value=data.cure + "명 :small_red_triangle:" + data.prev_confimed, inline=True)
-        embed.add_field(name="사망자", value=data.dead + "명 :small_red_triangle:" + data.prev_death, inline=True)
+        embed.add_field(name="격리해제", value=korea.rescued + "명 :small_red_triangle:" + korea.prev_rescured, inline=True)
+        embed.add_field(name="격리중", value=korea.cure + "명 :small_red_triangle:" + korea.prev_confimed, inline=True)
+        embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=True)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         print(today)
         embed.set_footer(text=update)
@@ -218,11 +219,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
         country = "한국"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-        embed.add_field(name="누적 확진자수", value=data.confirmed + "명 :small_red_triangle:" + data.prev_confimed,
+        embed.add_field(name="누적 확진자수", value=korea.confirmed + "명 :small_red_triangle:" + korea.prev_confimed,
                         inline=False)
-        embed.add_field(name="격리해제", value=data.rescued + "명 :small_red_triangle:" + data.prev_rescured, inline=False)
-        embed.add_field(name="격리중", value=data.cure + "명 :small_red_triangle:" + data.prev_confimed, inline=False)
-        embed.add_field(name="사망자", value=data.dead + "명 :small_red_triangle:" + data.prev_death, inline=False)
+        embed.add_field(name="격리해제", value=korea.rescued + "명 :small_red_triangle:" + korea.prev_rescured, inline=False)
+        embed.add_field(name="격리중", value=korea.cure + "명 :small_red_triangle:" + korea.prev_confimed, inline=False)
+        embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
         embed.set_footer(text=update)
@@ -232,8 +233,8 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "격리해제":
         # 기본적으로 한국의 정보를 가져옴
         embed = discord.Embed(title=month + "월 " + day + "일" + " 코로나 상황", color=0x62c1cc)
-        embed.add_field(name="누적 격리해제", value=data.rescued + "명 ", inline=True)
-        embed.add_field(name="금일 격리해제", value=data.prev_rescured + "명 ", inline=True)
+        embed.add_field(name="누적 격리해제", value=korea.rescued + "명 ", inline=True)
+        embed.add_field(name="금일 격리해제", value=korea.prev_rescured + "명 ", inline=True)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata2_" + today + ".png")
         embed.set_footer(text=update)
         await message.channel.send(embed=embed)
