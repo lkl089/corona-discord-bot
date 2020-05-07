@@ -4,7 +4,7 @@ import os
 import sys
 import discord, asyncio
 from datetime import datetime
-from data import checkurl, world_data, mask
+from data import data,checkurl, world_data, mask
 from data.checkurl import update
 import data.data as korea
 from data import token

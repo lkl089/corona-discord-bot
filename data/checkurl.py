@@ -2,7 +2,7 @@
 import urllib.request
 import urllib.error
 from datetime import datetime,date,timedelta
-from selenium import webdriver
+
 
 
 #driver = webdriver.Chrome('c:/chromedriver/chromedriver.exe')
