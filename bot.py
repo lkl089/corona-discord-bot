@@ -4,7 +4,7 @@ import os
 import sys
 import discord, asyncio
 from datetime import datetime
-from data import data,checkurl, world_data, mask
+from data import data,checkurl, world_data
 from data.checkurl import update
 import data.data as korea
 from data import token
@@ -86,19 +86,13 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         mask_api_addr = 'https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json?address=' + str(
             mask_addr)
         # print(mask_api_addr)
-
+        API_KEY = token.API_KEY
         get_mask = requests.get(mask_api_addr)
         mask_all = get_mask.json()
         list(mask_all.keys())
         store_count = mask_all['count']
         mask_info = mask_all['stores']
         # print(mask_info)
-        all_store = mask_info[5]
-        all_addr = mask_info[0]
-        remain_mask = mask_info[6]
-        stock = mask_info[7]
-        lat = mask_info[3]
-        lng = mask_info[4]
 
         i = 0;
 
@@ -120,27 +114,44 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             # print(mark)
             if str(stock['remain_stat']) == 'plenty':
                 remain = str(':green_circle:')
-                #print(stock['remain_stat'])
+                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'some':
                 remain = str(':orange_circle:')
-                #print(stock['remain_stat'])
+                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'few':
                 remain = str(':red_circle:')
-                #print(stock['remain_stat'])
+                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'empty':
                 remain = str(':black_circle:')
-                #print(stock['remain_stat'])
+                # print(stock['remain_stat'])
             else:
                 remain = str(':x:')
-                #print(stock['remain_stat'])
+                # print(stock['remain_stat'])
 
-            info = str(int(i)+1) + '. ' + '상점명 : ' + str(all_store['name']) + '\n주소 : ' + str(
-                all_addr['addr']) + '\n마스크 재고 : ' + remain + '\n입고시간 :' + str(stock['stock_at'])
+            if str(stock['created_at']) == 'None':
+                creat_at = str('정보 없음')
+            else:
+                creat_at = str(stock['created_at'])
+
+            if str(stock['stock_at']) == 'None':
+                stock_at = str('정보 없음')
+            else:
+                stock_at = str(stock['stock_at'])
+
+            shops_map = 'https://maps.googleapis.com/maps/api/staticmap?center=' + str(location) + \
+                        '&zoom=16&size=300x300&maptype=roadmap&region=kr&format=png' + '&markers=color:blue|label:' + str(
+                all_store['name']) + '|' + \
+                        str(location) + '&key=' + API_KEY
+            open_map = 'https://www.google.com/maps/search/' + str(location)
+            info = str(int(i) + 1) + '. ' + '상점명 : ' + str(all_store['name']) + '\n주소 : ' + str(
+                all_addr['addr']) + '\n마스크 재고 : ' + remain + '\n입고시간 : ' + str(stock_at) + \
+                   '\n갱신시간 : ' + str(creat_at) + '\n[길찾기](' + open_map + ')'
             maskinfo.append(info)
             # print(maskinfo)
             embed = discord.Embed(title="공적마스크 판매 상점 정보",
                                   description=info, color=0x9fd6f4)
             embed.set_footer(text='\n100개 이상(녹색),30개~99개(노랑색),2개~30개(빨강색),1개이하(검정색),판매중단(X)')
+            embed.set_image(url=shops_map)
             await message.channel.send(embed=embed)
             # await message.channel.send(info)
 
@@ -162,13 +173,12 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         # print(mark)
 
         for i in range(int(store_count)):
-            loop_m = '&markers=color:blue|'+ str(mark[i])
+            loop_m = '&markers=color:blue|' + str(mark[i])
             marker.append(loop_m)
             if i == store_count:
                 continue
             # print(marker)
             # print(i)
-        API_KEY = token.API_KEY
         maps_url = 'https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=600x600&maptype=roadmap&region=kr&format=png' + str(
             ''.join(marker)) + '&key=' + API_KEY
         print(maps_url)
@@ -180,24 +190,43 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         request.add_header("X-Naver-Client-Id", client_id)
         request.add_header("X-Naver-Client-Secret", client_secret)
         response = urllib.request.urlopen(request, data=data.encode("utf-8"))
-        rescode = response.getcode()#
+        rescode = response.getcode()  #
         res = json.load(response)
         list(res.keys())
-        #response_body = res.read()#
-        #if (rescode == 200):#
+        # response_body = res.read()#
+        # if (rescode == 200):#
         #    response_body = response.read()#
         #    print(response_body.decode('utf-8'))#
-        #else:#
+        # else:#
         #   print("Error Code:" + rescode)#
 
         url_api = res['result']
         print(url_api)
         short_url = url_api['url']
         print(short_url)
+
+        d = ['월', '화', '수', '목', '금', '토', '일']
+        y = datetime.today().weekday()
+        print(d[y])
+        if y == 0:
+            buy_mask = '주민번호 끝자리 1,6년생'
+        elif y == 1:
+            buy_mask = '주민번호 끝자리 2,7년생'
+        elif y == 2:
+            buy_mask = '주민번호 끝자리 3,8년생'
+        elif y == 3:
+            buy_mask = '주민번호 끝자리 4,9년생'
+        elif y == 4:
+            buy_mask = '주민번호 끝자리 5,0년생'
+        elif y == 5:
+            buy_mask = '모든사람'
+        elif y == 6:
+            buy_mask = '모든사람'
+
         embed = discord.Embed(title=month + "월 " + day + "일 " + " 마스크 상황",
-                              description=mask.d[mask.y] + "요일 마스크 구매는 " + mask.buy_mask + "이 가능합니다\n"
-                                          + '현재 주변 ' + str(int(store_count)) + '곳에서 판매중입니다.\n'
-                              +'지도 : '+short_url, color=0x9fd6f4)
+                              description=d[y] + "요일 마스크 구매는 " + buy_mask + "이 가능합니다\n"
+                                          + '현재 입력 주소지 기준 ' + str(int(store_count)) + '곳에서 판매중입니다.\n'
+                                          + '지도 : ' + short_url, color=0x9fd6f4)
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
 
