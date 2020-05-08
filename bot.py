@@ -100,33 +100,26 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             if i == store_count:
                 print('mask info end')
                 continue
-            # print(mask_info[i])
             all_store = mask_info[i]
             all_addr = mask_info[i]
-            remain_mask = mask_info[i]
+#           remain_mask = mask_info[i]
             stock = mask_info[i]
             lat = mask_info[i]
             lng = mask_info[i]
-            #    type = mask_info[i]
 
             location = str(lat['lat']) + ',' + str(lng['lng'])
             mark.append(location)
             # print(mark)
             if str(stock['remain_stat']) == 'plenty':
                 remain = str(':green_circle:')
-                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'some':
                 remain = str(':orange_circle:')
-                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'few':
                 remain = str(':red_circle:')
-                # print(stock['remain_stat'])
             elif str(stock['remain_stat']) == 'empty':
                 remain = str(':black_circle:')
-                # print(stock['remain_stat'])
             else:
                 remain = str(':x:')
-                # print(stock['remain_stat'])
 
             if str(stock['created_at']) == 'None':
                 creat_at = str('정보 없음')
@@ -155,22 +148,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             await message.channel.send(embed=embed)
             # await message.channel.send(info)
 
-            # print(store_count)
-            # print('=========')
-            # print(all_store['name'])  # 판매처 이름
-            # print('=========')
-            # print(all_addr['addr'])  # 판매처 주소
-            # print('=========')
-            # print(remain_mask['remain_stat'])  # 재고 상태 100개이상(녹색)=plenty, 30개이상 100개미만(노랑색)=some,
-            # print('=========')  # 2개이상 30개미만(빨강색)=few, 1개이하(회색)=empty, 판매중지=break
-            # print(stock['stock_at'])  # 입고시간
-            # print('=========')
-            # print(info)  # 위도,경도
-            # print('=========')
-            #    print(type['type'])                         #판매처 유형 01=약국, 02=우체국, 03=농협
-            # print('=========')
         marker = []
-        # print(mark)
 
         for i in range(int(store_count)):
             loop_m = '&markers=color:blue|' + str(mark[i])
