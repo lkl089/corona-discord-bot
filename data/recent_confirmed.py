@@ -105,7 +105,7 @@ while i<19:
         print(w_3_d)
         continue
     elif (i == 3):
-        no3 = list_country[i][0].text.strip()
+        no4 = list_country[i][0].text.strip()
         w_4_6 = tds[int(0) + (int(8) * int(i))].text.strip()
         w_4_5 = tds[int(1) + (int(8) * int(i))].text.strip()
         w_4_4 = tds[int(2) + (int(8) * int(i))].text.strip()
