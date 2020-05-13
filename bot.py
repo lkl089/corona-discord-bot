@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from data import recent_confirmed as week
 import json
 import os
 import sys
