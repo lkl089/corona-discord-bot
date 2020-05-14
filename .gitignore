@@ -137,3 +137,4 @@ data/token.py
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/corona discord bot.iml
 .idea/workspace.xml
+*.png

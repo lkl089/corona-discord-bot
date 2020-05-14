@@ -12,6 +12,8 @@ from data import token
 import requests
 from urllib.parse import quote
 import urllib.request
+from chart import chart_world
+from chart import chart_korea
 
 client_id = token.client_id
 client_secret = token.client_secret
@@ -54,7 +56,7 @@ async def bt(zz):
 
 @client.event
 async def on_message(message, month=month, day=day, today=checkurl.today, maskinfo=[],
-                     mark=[]):  # 메시지가 들어 올 때마다 가동되는 구문입니다.
+                     mark=[],stop=[],stop_c=[]):  # 메시지가 들어 올 때마다 가동되는 구문입니다.
     if message.author.bot:  # 채팅을 친 사람이 봇일 경우
         return None  # 반응하지 않고 구문을 종료합니다.
 
@@ -95,7 +97,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         mask_info = mask_all['stores']
         # print(mask_info)
 
-        i = 0;
+        i = 1;
 
         for i in range(int(store_count) + 1):
             if i == store_count:
@@ -113,13 +115,24 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             # print(mark)
             if str(stock['remain_stat']) == 'plenty':
                 remain = str(':green_circle:')
+                stop.append(str(0))
             elif str(stock['remain_stat']) == 'some':
                 remain = str(':orange_circle:')
+                stop.append(str(0))
             elif str(stock['remain_stat']) == 'few':
                 remain = str(':red_circle:')
+                stop.append(str(0))
             elif str(stock['remain_stat']) == 'empty':
                 remain = str(':black_circle:')
+                stop.append(str(0))
             else:
+                print(stock['remain_stat'])
+                stop.append(str(int(i+1)))
+                stop_c.append(i)
+                print(stop)
+                print(stop_c)
+                cnt_stop = len(stop_c)
+                stop_sell = stop.index(str(int(i+1)))
                 remain = str(':x:')
 
             if str(stock['created_at']) == 'None':
@@ -132,22 +145,27 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             else:
                 stock_at = str(stock['stock_at'])
 
-            shops_map = 'https://maps.googleapis.com/maps/api/staticmap?center=' + str(location) + \
+            if i == stop_sell:
+                print(stop)
+                continue
+            else:
+
+                shops_map = 'https://maps.googleapis.com/maps/api/staticmap?center=' + str(location) + \
                         '&zoom=16&size=300x300&maptype=roadmap&region=kr&format=png' + '&markers=color:blue|label:' + str(
-                all_store['name']) + '|' + \
+                    all_store['name']) + '|' + \
                         str(location) + '&key=' + API_KEY
-            open_map = 'https://www.google.com/maps/search/' + str(location)
-            info = str(int(i) + 1) + '. ' + '상점명 : ' + str(all_store['name']) + '\n주소 : ' + str(
-                all_addr['addr']) + '\n마스크 재고 : ' + remain + '\n입고시간 : ' + str(stock_at) + \
-                   '\n갱신시간 : ' + str(creat_at) + '\n[길찾기](' + open_map + ')'
-            maskinfo.append(info)
-            # print(maskinfo)
-            embed = discord.Embed(title="공적마스크 판매 상점 정보",
+                open_map = 'https://www.google.com/maps/search/' + str(location)
+                info = str(int(i) + 1) + '. ' + '상점명 : ' + str(all_store['name']) + '\n주소 : ' + str(
+                    all_addr['addr']) + '\n마스크 재고 : ' + remain + '\n입고시간 : ' + str(stock_at) + \
+                        '\n갱신시간 : ' + str(creat_at) + '\n[길찾기](' + open_map + ')'
+                maskinfo.append(info)
+                # print(maskinfo)
+                embed = discord.Embed(title="공적마스크 판매 상점 정보",
                                   description=info, color=0x9fd6f4)
-            embed.set_footer(text='\n100개 이상(녹색),30개~99개(노랑색),2개~30개(빨강색),1개이하(검정색),판매중단(X)')
-            embed.set_image(url=shops_map)
-            await message.channel.send(embed=embed)
-            # await message.channel.send(info)
+                embed.set_footer(text='\n100개 이상(녹색),30개~99개(노랑색),2개~30개(빨강색),1개이하(검정색),판매중단(X)')
+                embed.set_image(url=shops_map)
+                await message.channel.send(embed=embed)
+                # await message.channel.send(info)
 
         marker = []
 
@@ -204,7 +222,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
         embed = discord.Embed(title=month + "월 " + day + "일 " + " 마스크 상황",
                               description=d[y] + "요일 마스크 구매는 " + buy_mask + "이 가능합니다\n"
-                                          + '현재 입력 주소지 기준 ' + str(int(store_count)) + '곳에서 판매중입니다.\n'
+                                          + '판매 중지'+str(cnt_stop)+'곳을 제외한 ' + str(int(store_count)-int(cnt_stop)) + '곳에서 구매 가능합니다.\n'
                                           + '지도 : ' + short_url, color=0x9fd6f4)
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
@@ -234,8 +252,10 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
+        file = discord.File("./data/confim_korea.png", filename="image.png")
+        embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
-        await message.channel.send(embed=embed)
+        await message.channel.send(file=file,embed=embed)
         # await message.channel.send("할 말", embed=embed)  # embed와 일반메시지를 함께 보내고 싶으시면 이렇게 사용하시면 됩니다.
 
     if message.content == prefix + "격리해제":
@@ -258,9 +278,10 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
         embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
                         inline=False)
-        embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
+        file = discord.File("./data/confim_nara.png", filename="image.png")
+        embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
-        await message.channel.send(embed=embed)
+        await message.channel.send(file=file,embed=embed)
 
     if message.content == prefix + "아시아":
         # 아시아의 정보를 가져옴
