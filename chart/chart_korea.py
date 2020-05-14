@@ -39,6 +39,5 @@ plt.draw()
 fig = plt.gcf()
 world_chart = fig.savefig('data/confim_korea.png', dpi=fig.dpi)
 
-#plt.show()
 plt.cla()
 plt.clf()
