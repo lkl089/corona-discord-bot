@@ -12,6 +12,7 @@ from data import token
 import requests
 from urllib.parse import quote
 import urllib.request
+import platform
 from chart import chart_world
 from chart import chart_korea
 
@@ -252,7 +253,12 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
-        file = discord.File("./data/confim_korea.png", filename="image.png")
+        if platform.system() == 'Windows':
+            # 윈도우인 경우
+            file = discord.File("./data/confim_korea.png", filename="image.png")
+        else:
+            # 우분투인 경우
+            file = discord.File("./data/confim_korea.png", filename="image.png")
         embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)
@@ -278,7 +284,12 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="격리해제", value=world_data.w_rescued + "명", inline=False)
         embed.add_field(name="사망자", value=world_data.w_death + "명 :small_red_triangle:" + world_data.w_prev_death,
                         inline=False)
-        file = discord.File("./data/confim_nara.png", filename="image.png")
+        if platform.system() == 'Windows':
+            # 윈도우인 경우
+            file = discord.File("./data/confim_nara.png", filename="image.png")
+        else:
+            # 우분투인 경우
+            file = discord.File("/discord-bot/data/confim_nara.png", filename="image.png")
         embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)

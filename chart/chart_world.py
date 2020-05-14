@@ -63,7 +63,14 @@ plt.legend(['확진자'])
 #plt.ylabel('확진자')                  # y축 라벨
 plt.draw()
 fig = plt.gcf()
-world_chart = fig.savefig('data/confim_nara.png', dpi=fig.dpi)
+
+if platform.system() == 'Windows':
+# 윈도우인 경우
+    world_chart = fig.savefig('data/confim_nara.png', dpi=fig.dpi)
+else:
+# 우분투인 경우
+    world_chart = fig.savefig('/discord-bot/data/confim_nara.png', dpi=fig.dpi)
+
 
 #plt.show()
 plt.cla()
