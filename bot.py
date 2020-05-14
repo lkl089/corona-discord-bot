@@ -223,8 +223,8 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
         embed = discord.Embed(title=month + "월 " + day + "일 " + " 마스크 상황",
                               description=d[y] + "요일 마스크 구매는 " + buy_mask + "이 가능합니다\n"
-                                          + '판매 중지'+str(cnt_stop)+'곳을 제외한 ' + str(int(store_count)-int(cnt_stop)) + '곳에서 구매 가능합니다.\n'
-                                          + '지도 : ' + short_url, color=0x9fd6f4)
+                                          + '판매 중지 '+str(cnt_stop)+'곳을 제외한 ' + str(int(store_count)-int(cnt_stop)) + '곳에서 구매 가능합니다.\n'
+                                          + '전체목록 지도 : ' + short_url, color=0x9fd6f4)
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
 
@@ -258,7 +258,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             file = discord.File("./data/confim_korea.png", filename="image.png")
         else:
             # 우분투인 경우
-            file = discord.File("./data/confim_korea.png", filename="image.png")
+            file = discord.File("/discord-bot/data/confim_korea.png", filename="image.png")
         embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)
