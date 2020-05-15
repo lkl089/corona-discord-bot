@@ -128,6 +128,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                 stop.append(str(0))
             else:
                 print(stock['remain_stat'])
+
                 stop.append(str(int(i+1)))
                 stop_c.append(i)
                 print(stop)
@@ -168,6 +169,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                 embed.set_image(url=shops_map)
                 await message.channel.send(embed=embed)
                 # await message.channel.send(info)
+
 
         marker = []
 
@@ -229,7 +231,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
 
-    if message.content == prefix + "한국" or prefix + "현재상황":
+    if message.content == prefix + "한국":
         print("요청")
 
         country = "한국"
