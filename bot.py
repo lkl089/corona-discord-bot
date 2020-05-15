@@ -13,8 +13,8 @@ import requests
 from urllib.parse import quote
 import urllib.request
 import platform
-from chart import chart_world
-from chart import chart_korea
+from chart import chart_world,chart_korea,chart_usa
+
 
 client_id = token.client_id
 client_secret = token.client_secret
@@ -228,20 +228,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.set_footer(text="기준 주소 : " + str(mask_addr))
         await message.channel.send(embed=embed)
 
-    if message.content == prefix + "현재상황":
-        # 기본적으로 한국의 정보를 가져옴
-        country = "한국"
-        embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-        embed.add_field(name="누적 확진자수", value=korea.confirmed + "명 :small_red_triangle:" + korea.prev_confimed,
-                        inline=True)
-        embed.add_field(name="격리해제", value=korea.rescued + "명 :small_red_triangle:" + korea.prev_rescured, inline=True)
-        embed.add_field(name="격리중", value=korea.cure + "명 :small_red_triangle:" + korea.prev_confimed, inline=True)
-        embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=True)
-        embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
-        print(today)
-        embed.set_footer(text=update)
-        await message.channel.send(embed=embed)
-    if message.content == prefix + "한국":
+    if message.content == prefix + "한국" or prefix + "현재상황":
         print("요청")
 
         country = "한국"
@@ -286,10 +273,10 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                         inline=False)
         if platform.system() == 'Windows':
             # 윈도우인 경우
-            file = discord.File("./data/confim_nara.png", filename="image.png")
+            file = discord.File("./data/confim_world.png", filename="image.png")
         else:
             # 우분투인 경우
-            file = discord.File("/discord-bot/data/confim_nara.png", filename="image.png")
+            file = discord.File("/discord-bot/data/confim_world.png", filename="image.png")
         embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)
@@ -392,5 +379,25 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="!각나라별이름", value="[추가예정]각 나라별 코로나 상황을 알려줍니다.", inline=False)
         await message.channel.send(embed=embed)
 
+    if message.content == prefix + "미국":
+        print("요청")
 
+        country = "미국"
+        embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+        embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                        inline=False)
+        embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+        embed.add_field(name="격리중", value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim, inline=False)
+        embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead, inline=False)
+        embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
+        #        print(today)
+        if platform.system() == 'Windows':
+            # 윈도우인 경우
+            file = discord.File("./data/confim_usa.png", filename="image.png")
+        else:
+            # 우분투인 경우
+            file = discord.File("/discord-bot/data/confim_usa.png", filename="image.png")
+        embed.set_image(url="attachment://image.png")
+        embed.set_footer(text=update)
+        await message.channel.send(file=file,embed=embed)
 client.run(token1)

@@ -20,18 +20,18 @@ else:
     rc('font', family=font_name)
 
 ax = plt.subplot()
-plt.title('주간 한국 코로나 상황')
+plt.title('주간 미국 코로나 상황')
 ax.set_axisbelow(True)
 ax.yaxis.grid(color='gray', linestyle='dashed')
 plt.xticks(fontsize=8)
 ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7])
 ax.set_xticklabels(['',week.day6, week.day5, week.day4, week.day3, week.day2, week.day1, week.today], rotation=40)
 
-confimed_k = ['0',week.w_17_6, week.w_17_5, week.w_17_4, week.w_17_3, week.w_17_2,week.w_17_1,week.w_17_t]
+confimed_usa = ['0',week.w_1_6, week.w_1_5, week.w_1_4, week.w_1_3, week.w_1_2,week.w_1_1,week.w_1_t]
 
-print(confimed_k)
+print(confimed_usa)
 
-plt.bar(range(len(confimed_k)), confimed_k)
+plt.bar(range(len(confimed_usa)), confimed_usa)
 
 plt.legend(['확진자'])
 
@@ -39,10 +39,10 @@ plt.draw()
 fig = plt.gcf()
 if platform.system() == 'Windows':
 # 윈도우인 경우
-    world_chart = fig.savefig('./data/confim_korea.png', dpi=fig.dpi)
+    world_chart = fig.savefig('./data/confim_usa.png', dpi=fig.dpi)
 else:
 # 우분투인 경우
-    world_chart = fig.savefig('/discord-bot/data/confim_korea.png', dpi=fig.dpi)
+    world_chart = fig.savefig('/discord-bot/data/confim_usa.png', dpi=fig.dpi)
 
 
 plt.cla()

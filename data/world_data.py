@@ -50,6 +50,34 @@ w_active = w_tds[6].text.strip()
 print(w_active)
 print("world end")
 print("=======")
+
+#미국
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[1].text.strip()
+usa_prev_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[3].text.strip()
+usa_prev_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[5].text.strip()
+usa_active = usa_all[6].text.strip()
+
+print(usa)
+print('here!!!')
+print(len(usa))
+print(usa_all)
+print(usa_confim)
+print(usa_prev_confim)
+print(usa_dead)
+print(usa_prev_dead)
+print(usa_resued)
+print(usa_active)
+#print(usa_confim)
+
+
+
 ##대륙별
 #아시아
 print("asia start")

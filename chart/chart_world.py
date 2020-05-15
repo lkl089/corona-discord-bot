@@ -66,10 +66,10 @@ fig = plt.gcf()
 
 if platform.system() == 'Windows':
 # 윈도우인 경우
-    world_chart = fig.savefig('data/confim_nara.png', dpi=fig.dpi)
+    world_chart = fig.savefig('./data/confim_world.png', dpi=fig.dpi)
 else:
 # 우분투인 경우
-    world_chart = fig.savefig('/discord-bot/data/confim_nara.png', dpi=fig.dpi)
+    world_chart = fig.savefig('/discord-bot/data/confim_world.png', dpi=fig.dpi)
 
 
 #plt.show()
