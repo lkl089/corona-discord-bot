@@ -57,7 +57,7 @@ async def bt(zz):
 
 @client.event
 async def on_message(message, month=month, day=day, today=checkurl.today, maskinfo=[],
-                     mark=[],stop=[],stop_c=[]):  # 메시지가 들어 올 때마다 가동되는 구문입니다.
+                     mark=[],stop=[],stop_c=[],stop_sell=''):  # 메시지가 들어 올 때마다 가동되는 구문입니다.
     if message.author.bot:  # 채팅을 친 사람이 봇일 경우
         return None  # 반응하지 않고 구문을 종료합니다.
 
@@ -134,6 +134,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                 print(stop_c)
                 cnt_stop = len(stop_c)
                 stop_sell = stop.index(str(int(i+1)))
+                print(stop_sell)
                 remain = str(':x:')
 
             if str(stock['created_at']) == 'None':
