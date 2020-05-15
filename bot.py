@@ -52,7 +52,7 @@ async def bt(zz):
         for message in zz:
             await client.change_presence(status=discord.Status.online, activity=discord.Game(message))
             await asyncio.sleep(10)  # 5초마다 메세지 변경
-            # print(message)
+            print(message)
 
 
 @client.event
@@ -73,6 +73,26 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         await message.channel.send(embed=embed)
         # DM으로 메시지를 보냅니다.
         # await message.author.send("응답")
+    if message.content == prefix + "목록":
+        embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
+        embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
+        embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
+        embed.add_field(name="!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 검색합니다", inline=False)
+        embed.add_field(name="!국가목록", value="[추가예정]각 국가명 입력시 해당 국가의 코로나 상황을 알려줍니다.", inline=False)
+        embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
+        # embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
+        #id = str(710687517275586580)
+        #emoji = client.get_emoji(str(id))
+        emoji = 'U+003AU+0066U+006CU+0061U+0067U+005FU+006BU+0072U+003A'
+        await message.channel.send(embed=embed)
+        await message.add_reaction(emoji)
+
+        async def on_reaction_add(reaction, user):
+            if reaction.emoji == ':flag_kr:':
+                message.add_react(':flag_kr:')
+                message.add_react(':globe_with_meridians:')
+
+
 
     if message.content.startswith(prefix + "마스크"):
         split_addr = message.content.split(maxsplit=1)
