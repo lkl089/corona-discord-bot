@@ -64,8 +64,6 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "명령어":
         embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
         embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
-        embed.add_field(name="!현재상황", value="한국의 코로나 상황을 알려줍니다.", inline=False)
-        embed.add_field(name="!격리해제", value="한국의 완치(격리해제) 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
         embed.add_field(name="!국가목록", value="[추가예정]각 국가명 입력시 해당 국가의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
