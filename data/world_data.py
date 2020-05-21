@@ -24,29 +24,29 @@ w_tds = w_c.find_all('td')
 print("=======")
 
 #전세계 확진자
-w_confirmed = w_tds[1].text.strip()
+w_confirmed = w_tds[2].text.strip()
 print(w_confirmed)
 
 #전일대비 증가
-w_prev_confirmed = w_tds[2].text.strip()
+w_prev_confirmed = w_tds[3].text.strip()
 w_prev_confirmed = w_prev_confirmed.replace("+","")
 print(w_prev_confirmed)
 
 #전세계 사망자
-w_death = w_tds[3].text.strip()
+w_death = w_tds[4].text.strip()
 print(w_death)
 
 #전일대비 증가
-w_prev_death = w_tds[4].text.strip()
+w_prev_death = w_tds[5].text.strip()
 w_prev_death = w_prev_death.replace("+","")
 print(w_prev_death)
 
 #전세계 완치자
-w_rescued = w_tds[5].text.strip()
+w_rescued = w_tds[6].text.strip()
 print(w_rescued)
 
 #전세계 치료중인자
-w_active = w_tds[6].text.strip()
+w_active = w_tds[7].text.strip()
 print(w_active)
 print("world end")
 print("=======")

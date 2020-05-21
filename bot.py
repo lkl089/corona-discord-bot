@@ -13,7 +13,7 @@ import requests
 from urllib.parse import quote
 import urllib.request
 import platform
-from chart import chart_world,chart_korea,chart_usa
+from chart import chart_world,chart_korea,chart_usa,chart_england
 
 
 client_id = token.client_id
@@ -405,12 +405,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
         country = "미국"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-        embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+        embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" +str(int(week.w_1_t_p)-int(week.w_1_1_p)),
                         inline=False)
         embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
         embed.add_field(name="격리중", value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim, inline=False)
         embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead, inline=False)
-        embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
         if platform.system() == 'Windows':
             # 윈도우인 경우
@@ -421,4 +420,55 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.set_image(url="attachment://image.png")
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)
+
+        if message.content == prefix + "영국":
+            print("요청")
+
+            country = "영국"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(int(week.w_2_t_p)-int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_england.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_england.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+        if message.content == prefix + "영국":
+            print("요청")
+
+            country = "영국"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_england.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_england.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+
 client.run(token1)
