@@ -14,7 +14,7 @@ ths = table.find_all('th')
 list_country = []
 for count in range(9, 28):
     list_country.append([ths[count]])
-#print(list_country)
+print(list_country)
 tds = table.find_all('td')
 #print('=======')
 #print(ths)

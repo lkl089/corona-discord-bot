@@ -44,7 +44,7 @@ else:
     rc('font', family=font_name)
 
 ax = plt.subplot()
-plt.title(month+"/"+day+'  주요 발생국가 상황')
+plt.title(month+"/"+day+'  주요 발생국가 상황 (보건복지부 자료기준)')
 ax.set_axisbelow(True)
 ax.yaxis.grid(color='gray', linestyle='dashed')
 plt.xticks(fontsize=8)

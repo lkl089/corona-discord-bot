@@ -13,7 +13,7 @@ import requests
 from urllib.parse import quote
 import urllib.request
 import platform
-from chart import chart_world,chart_korea,chart_usa,chart_england
+from chart import chart_world,chart_korea,chart_usa,chart_england,chart_belgium,chart_canada,chart_china,chart_france,chart_germany,chart_Indonesia,chart_iran,chart_italy,chart_japan,chart_nederlands,chart_philippines,chart_spain,chart_swiss,chart_thailand,chart_turky,chart_vietnam
 
 
 client_id = token.client_id
@@ -37,7 +37,7 @@ for message in client.guilds:
 async def on_ready():
     print("봇 시작")
     #
-    await bt(['한국 확진자수 : ' + korea.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
+    await bt(['!명령어 입력시 명령어목록을 확인할수 있습니다.','한국 확진자수 : ' + korea.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
               '유럽 확진자수 : ' + world_data.eu_confirmed + '명', '북미 확진자수 : ' + world_data.na_confirmed + '명',
               '남미 확진자수 : ' + world_data.sa_confirmed + '명', '아프리카 확진자수 : ' + world_data.af_confirmed + '명',
               '오세아니아 확진자수 : ' + world_data.oc_confirmed + '명', '만든사람 : KJH'])
@@ -421,7 +421,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.set_footer(text=update)
         await message.channel.send(file=file,embed=embed)
 
-        if message.content == prefix + "영국":
+    if message.content == prefix + "영국":
             print("요청")
 
             country = "영국"
@@ -445,7 +445,32 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             embed.set_footer(text=update)
             await message.channel.send(file=file, embed=embed)
 
-        if message.content == prefix + "영국":
+    if message.content == prefix + "스페인":
+            print("요청")
+
+            country = "스페인"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_spain.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_spain.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "이탈리아":
             print("요청")
 
             country = "영국"
@@ -462,10 +487,360 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
-                file = discord.File("./data/confim_england.png", filename="image.png")
+                file = discord.File("./data/confim_italy.png", filename="image.png")
             else:
                 # 우분투인 경우
-                file = discord.File("/discord-bot/data/confim_england.png", filename="image.png")
+                file = discord.File("/discord-bot/data/confim_italy.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "독일":
+            print("요청")
+
+            country = "독일"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_germany.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_germany.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "터키":
+            print("요청")
+
+            country = "터키"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_turky.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_turky.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "프랑스":
+            print("요청")
+
+            country = "프랑스"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_france.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_france.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "이란":
+            print("요청")
+
+            country = "이란"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_iran.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_iran.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "중국":
+            print("요청")
+
+            country = " 중국"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_china.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_china.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "캐나다":
+            print("요청")
+
+            country = "캐나다"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_canada.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_canada.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "벨기에":
+            print("요청")
+
+            country = "벨기에"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_belgium.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_belgium.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "네덜란드":
+            print("요청")
+
+            country = "네덜란드"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_nederlands.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_nederlands.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "스위스":
+            print("요청")
+
+            country = "스위스"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_swiss.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_swiss.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "인도네시아":
+            print("요청")
+
+            country = "인도네시아"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_indonesia.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_indonesia.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "일본":
+            print("요청")
+
+            country = "영국"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_japan.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_japan.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "필리핀":
+            print("요청")
+
+            country = "필리핀"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_philippines.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_philippines.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "태국":
+            print("요청")
+
+            country = "태국"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_thiland.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_thiland.png", filename="image.png")
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text=update)
+            await message.channel.send(file=file, embed=embed)
+
+    if message.content == prefix + "베트남":
+            print("요청")
+
+            country = "베트남"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
+                int(week.w_2_t_p) - int(week.w_2_1_p)),
+                            inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리중",
+                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            inline=False)
+            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            inline=False)
+            #        print(today)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/confim_vietman.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/confim_vietnam.png", filename="image.png")
             embed.set_image(url="attachment://image.png")
             embed.set_footer(text=update)
             await message.channel.send(file=file, embed=embed)
