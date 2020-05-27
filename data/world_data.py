@@ -50,6 +50,19 @@ w_active = w_tds[7].text.strip()
 print(w_active)
 print("world end")
 print("=======")
+i=0
+ths = w_soup.find_all('tr')
+all_country = []
+for count in range(9, 456): #232 china 시작 ~ 446 saint pierre miquelon 까지 215개 국가
+    #if count == :
+        #
+    #else :
+        #
+    all_country.append([ths[count]])
+    print('==='+str(i)+'번 ===')
+    print(all_country[i][0].text.strip())
+    i = i + 1
+
 
 #미국
 usa = w_soup.find_all('tr')
@@ -76,6 +89,255 @@ print(usa_prev_dead)
 print(usa_resued)
 print(usa_active)
 #print(usa_confim)
+
+##영국
+eng = w_soup.find_all('tr')
+print(len(eng))
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##스페인
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##이탈리아
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##독일
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##터키
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##프랑스
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##이란
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##중국
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##캐나다
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##벨기에
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##네덜란드
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##스위스
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##인도네시아
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##일본
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+##필리핀
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##태국
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
+
+
+##베트남
+usa = w_soup.find_all('tr')
+usa_all = usa[9]
+usa_all = usa_all.find_all('td')
+usa_confim = usa_all[2].text.strip()
+usa_prev_confim = usa_all[3].text.strip()
+usa_prev_confim = usa_prev_confim.replace("+","")
+usa_dead = usa_all[4].text.strip()
+usa_prev_dead = usa_all[5].text.strip()
+usa_prev_dead = usa_prev_dead.replace("+","")
+usa_resued = usa_all[6].text.strip()
+usa_active = usa_all[7].text.strip()
+
 
 
 ##대륙별
