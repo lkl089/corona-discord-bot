@@ -13,8 +13,7 @@ import requests
 from urllib.parse import quote
 import urllib.request
 import platform
-from chart import chart_world,chart_korea,chart_usa,chart_england
-
+from chart import chart_world,chart_korea,chart_usa,chart_england,chart_belgium,chart_canada,chart_china,chart_france,chart_germany,chart_indonesia,chart_iran,chart_italy,chart_japan,chart_nederlands,chart_philippines,chart_spain,chart_swiss,chart_thailand,chart_turky,chart_vietnam
 
 client_id = token.client_id
 client_secret = token.client_secret
@@ -63,6 +62,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
     if message.content == prefix + "명령어":
         embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
+        embed.add_field(name="!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
         embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
         embed.add_field(name="!국가목록", value="[추가예정]각 국가명 입력시 해당 국가의 코로나 상황을 알려줍니다.", inline=False)

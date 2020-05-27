@@ -23,16 +23,20 @@ ax = plt.subplot()
 plt.title('주간 베트남 코로나 상황')
 ax.set_axisbelow(True)
 ax.yaxis.grid(color='gray', linestyle='dashed')
+ax.xaxis.grid(color='gray', linestyle='dashed')
 plt.xticks(fontsize=8)
-ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7])
-ax.set_xticklabels(['',week.day6, week.day5, week.day4, week.day3, week.day2, week.day1, week.today], rotation=40)
+#ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7])
+#ax.set_xticklabels(['',week.day6, week.day5, week.day4, week.day3, week.day2, week.day1, week.today], rotation=40)
 
 confimed_viet = ['0',week.w_19_6, week.w_19_5, week.w_19_4, week.w_19_3, week.w_19_2,week.w_19_1,week.w_19_t]
 
 print(confimed_viet)
 
-plt.bar(range(len(confimed_viet)), confimed_viet)
-
+plt.plot([0, 1, 2, 3, 4, 5, 6],[week.w_19_6, week.w_19_5, week.w_19_4, week.w_19_3, week.w_19_2,week.w_19_1,week.w_19_t],c="r",lw="3",ls="--",marker="o",ms="8",mec="blue")
+locs, labels=plt.xticks()
+xticks=['',week.day6, week.day5, week.day4, week.day3, week.day2, week.day1, week.today]
+plt.xticks(locs, xticks)
+plt.xticks(locs,xticks)
 plt.legend(['확진자'])
 
 plt.draw()
