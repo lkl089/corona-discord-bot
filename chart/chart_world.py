@@ -44,7 +44,7 @@ else:
     rc('font', family=font_name)
 
 ax = plt.subplot()
-plt.title(month+"/"+day+'  주요 발생국가 상황 (보건복지부 자료기준)')
+plt.title(month+"/"+day+'  주요 발생국가 상황 (보건복지부 발표기준)')
 ax.set_axisbelow(True)
 ax.yaxis.grid(color='gray', linestyle='dashed')
 plt.xticks(fontsize=8)
@@ -55,7 +55,8 @@ confimed = ['0',week.w_19_t, week.w_18_t, week.w_17_t, week.w_16_t, week.w_15_t,
 dead = [week.w_19_d, week.w_18_d, week.w_17_d, week.w_16_d, week.w_15_d,week.w_14_d,week.w_13_d,week.w_12_d,week.w_11_d,week.w_10_d,week.w_9_d,week.w_8_d,week.w_7_d,week.w_6_d,week.w_5_d,week.w_4_d,week.w_3_d,week.w_2_d,week.w_1_d]
 print(confimed)
 print(dead)
-plt.bar(range(len(confimed)), confimed)
+plt.bar(range(len(confimed)), confimed,color='red', alpha=0.5)
+
 
 plt.legend(['확진자'])
 

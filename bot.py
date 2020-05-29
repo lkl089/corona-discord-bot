@@ -250,14 +250,13 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         await message.channel.send(embed=embed)
 
     if message.content == prefix + "한국":
-        print("요청")
 
         country = "한국"
         embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
         embed.add_field(name="누적 확진자수", value=korea.confirmed + "명 :small_red_triangle:" + korea.prev_confimed,
                         inline=False)
         embed.add_field(name="격리해제", value=korea.rescued + "명 :small_red_triangle:" + korea.prev_rescured, inline=False)
-        embed.add_field(name="격리중", value=korea.cure + "명 :small_red_triangle:" + korea.prev_confimed, inline=False)
+        embed.add_field(name="격리중", value=korea.cure + "명", inline=False)
         embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
@@ -404,11 +403,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         print("요청")
 
         country = "미국"
-        embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+        embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
         embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" +str(int(week.w_1_t_p)-int(week.w_1_1_p)),
                         inline=False)
-        embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
-        embed.add_field(name="격리중", value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim, inline=False)
+        embed.add_field(name="격리해제", value=world_data.usa_rescued + "명", inline=False)
+        embed.add_field(name="격리중", value=world_data.usa_active + "명", inline=False)
         embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead, inline=False)
         #        print(today)
         if platform.system() == 'Windows':
@@ -425,14 +424,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "영국"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(int(week.w_2_t_p)-int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.UK_confim + "명 :small_red_triangle:" + world_data.UK_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.UK_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.UK_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.UK_dead + "명 :small_red_triangle:" + world_data.UK_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -449,15 +448,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "스페인"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.spain_confim + "명 :small_red_triangle:" +world_data.spain_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.spain_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.spain_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.spain_dead + "명 :small_red_triangle:" + world_data.spain_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -473,16 +471,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "이탈리아":
             print("요청")
 
-            country = "영국"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            country = "이탈리아"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.italy_confim + "명 :small_red_triangle:" + world_data.italy_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.italy_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
-                            inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+                            value=world_data.italy_active + "명",inline=False)
+            embed.add_field(name="사망자", value=world_data.italy_dead + "명 :small_red_triangle:" + world_data.italy_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -499,15 +495,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "독일"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.germany_confim + "명 :small_red_triangle:" + world_data.germany_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.germany_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.germany_active + "명 :small_red_triangle:" + world_data.germany_prev_confim,
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.germany_dead + "명 :small_red_triangle:" + world_data.germany_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -524,15 +519,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "터키"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.turkey_confim + "명 :small_red_triangle:" + world_data.turkey_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.turkey_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.turkey_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.turkey_dead + "명 :small_red_triangle:" + world_data.turkey_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -549,15 +543,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "프랑스"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.france_confim + "명 :small_red_triangle:" + world_data.france_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.france_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.france_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.france_dead + "명 :small_red_triangle:" + world_data.france_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -574,15 +567,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "이란"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.iran_confim + "명 :small_red_triangle:" + world_data.iran_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.iran_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.iran_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.iran_dead + "명 :small_red_triangle:" + world_data.iran_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -599,15 +591,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = " 중국"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.china_confim + "명 :small_red_triangle:" + world_data.china_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.china_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.china_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.china_dead + "명 :small_red_triangle:" + world_data.china_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -624,15 +615,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "캐나다"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.canada_confim + "명 :small_red_triangle:" + world_data.canada_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.canada_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.canada_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.canada_dead + "명 :small_red_triangle:" + world_data.canada_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -649,15 +639,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "벨기에"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.belgium_confim + "명 :small_red_triangle:" + world_data.belgium_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.belgium_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.belgium_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.belgium_dead + "명 :small_red_triangle:" + world_data.belgium_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -674,15 +663,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "네덜란드"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
             embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
                 int(week.w_2_t_p) - int(week.w_2_1_p)),
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.nederlands_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.usa_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.nederlands_dead + "명 :small_red_triangle:" + world_data.nederlands_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -699,15 +688,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "스위스"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.swiss_confim + "명 :small_red_triangle:" + world_data.swiss_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.swiss_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.swiss_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.swiss_dead + "명 :small_red_triangle:" + world_data.swiss_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -724,15 +712,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "인도네시아"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.indonesia_confim + "명 :small_red_triangle:" + world_data.indonesia_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.indonesia_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.indonesia_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.indonesia_dead + "명 :small_red_triangle:" + world_data.indonesia_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -748,16 +735,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "일본":
             print("요청")
 
-            country = "영국"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            country = "일본"
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.japan_confim + "명 :small_red_triangle:" + world_data.japan_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.japan_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.usa_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.japan_dead + "명 :small_red_triangle:" + world_data.japan_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -774,15 +760,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "필리핀"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.philippines_confim + "명 :small_red_triangle:" + world_data.philippines_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.usa_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.philippines_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.philippines_dead + "명 :small_red_triangle:" + world_data.philippines_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
@@ -799,20 +784,19 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "태국"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.thailand_confim + "명 :small_red_triangle:" + world_data.thailand_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.thailand_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.thailand_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.thailand_dead + "명 :small_red_triangle:" + world_data.thailand_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
-                file = discord.File("./data/confim_thiland.png", filename="image.png")
+                file = discord.File("./data/confim_thailand.png", filename="image.png")
             else:
                 # 우분투인 경우
                 file = discord.File("/discord-bot/data/confim_thiland.png", filename="image.png")
@@ -824,15 +808,14 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             print("요청")
 
             country = "베트남"
-            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
+            embed.add_field(name="누적 확진자수", value=world_data.vietnam_confim + "명 :small_red_triangle:" + world_data.vietnam_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_resued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.vietnam_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명 :small_red_triangle:" + world_data.usa_prev_confim,
+                            value=world_data.usa_active + "명",
                             inline=False)
-            embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead,
+            embed.add_field(name="사망자", value=world_data.vietnam_dead + "명 :small_red_triangle:" + world_data.vietnam_prev_dead,
                             inline=False)
             #        print(today)
             if platform.system() == 'Windows':

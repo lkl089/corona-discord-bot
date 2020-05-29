@@ -20,7 +20,7 @@ else:
     rc('font', family=font_name)
 
 ax = plt.subplot()
-plt.title('주간 터키 코로나 상황 (보건복지부 자료기준)')
+plt.title('주간 터키 코로나 상황 (보건복지부 발표기준)')
 ax.set_axisbelow(True)
 ax.yaxis.grid(color='gray', linestyle='dashed')
 ax.xaxis.grid(color='gray', linestyle='dashed')

@@ -74,8 +74,8 @@ usa_prev_confim = usa_prev_confim.replace("+","")
 usa_dead = usa_all[4].text.strip()
 usa_prev_dead = usa_all[5].text.strip()
 usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+usa_rescued = usa_all[6].text.strip()
+usa_active = usa_all[8].text.strip()
 
 print(usa)
 print('here!!!')
@@ -86,257 +86,417 @@ print(usa_confim)
 print(usa_prev_confim)
 print(usa_dead)
 print(usa_prev_dead)
-print(usa_resued)
+print(usa_rescued)
 print(usa_active)
 #print(usa_confim)
 
 ##영국
-eng = w_soup.find_all('tr')
-print(len(eng))
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
-
-
+print("this England")
+UK_all = all_country[4][0]
+UK = UK_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(UK_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+UK_confim = UK[2].text.strip()
+print(UK_confim)
+UK_prev_confim = UK[3].text.strip()
+UK_prev_confim = UK_prev_confim.replace("+","")
+print(UK_prev_confim)
+UK_dead = UK[4].text.strip()
+print(UK_dead)
+UK_prev_dead = UK[5].text.strip()
+UK_prev_dead = UK_prev_dead.replace("+","")
+print(UK_prev_dead)
+UK_rescued = UK[6].text.strip()
+print(UK_rescued)
+UK_active = UK[8].text.strip()
+print(UK_active)
 
 ##스페인
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[3][0])
+print("this spain")
 
+spain_all = all_country[3][0]
+spain = spain_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(UK_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+spain_confim = spain[2].text.strip()
+print(spain_confim)
+spain_prev_confim = spain[3].text.strip()
+spain_prev_confim = spain_prev_confim.replace("+","")
+print(spain_prev_confim)
+spain_dead = spain[4].text.strip()
+print(spain_dead)
+spain_prev_dead = spain[5].text.strip()
+spain_prev_dead = spain_prev_dead.replace("+","")
+print(spain_prev_dead)
+spain_rescued = spain[6].text.strip()
+print(spain_rescued)
+spain_active = spain[8].text.strip()
+print(spain_active)
 
 
 ##이탈리아
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[5][0])
+print("this italy")
+
+italy_all = all_country[5][0]
+italy = italy_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(italy_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+italy_confim = italy[2].text.strip()
+print(italy_confim)
+italy_prev_confim = italy[3].text.strip()
+italy_prev_confim = italy_prev_confim.replace("+","")
+print(italy_prev_confim)
+italy_dead = italy[4].text.strip()
+print(italy_dead)
+italy_prev_dead = italy[5].text.strip()
+italy_prev_dead = italy_prev_dead.replace("+","")
+print(italy_prev_dead)
+italy_rescued = italy[6].text.strip()
+print(italy_rescued)
+italy_active = italy[8].text.strip()
+print(italy_active)
 
 
 ##독일
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[240][0])
+print("this germany")
+
+germany_all = all_country[240][0]
+germany = germany_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(germany_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+germany_confim = germany[2].text.strip()
+print(germany_confim)
+germany_prev_confim = germany[3].text.strip()
+germany_prev_confim = germany_prev_confim.replace("+","")
+print(germany_prev_confim)
+germany_dead = germany[4].text.strip()
+print(germany_dead)
+germany_prev_dead = germany[5].text.strip()
+germany_prev_dead = germany_prev_dead.replace("+","")
+print(germany_prev_dead)
+germany_rescued = germany[6].text.strip()
+print(germany_rescued)
+germany_active = germany[8].text.strip()
+print(germany_active)
 
 
 
 ##터키
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[9][0])
+print("this turkey")
+
+turkey_all = all_country[9][0]
+turkey = turkey_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(turkey_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+turkey_confim = turkey[2].text.strip()
+print(turkey_confim)
+turkey_prev_confim = turkey[3].text.strip()
+turkey_prev_confim = turkey_prev_confim.replace("+","")
+print(turkey_prev_confim)
+turkey_dead = turkey[4].text.strip()
+print(turkey_dead)
+turkey_prev_dead = turkey[5].text.strip()
+turkey_prev_dead = turkey_prev_dead.replace("+","")
+print(turkey_prev_dead)
+turkey_rescued = turkey[6].text.strip()
+print(turkey_rescued)
+turkey_active = turkey[8].text.strip()
+print(turkey_active)
 
 
 
 ##프랑스
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[239][0])
+print("this france")
 
+france_all = all_country[239][0]
+france = france_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(france_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+france_confim = france[2].text.strip()
+print(france_confim)
+france_prev_confim = france[3].text.strip()
+france_prev_confim = france_prev_confim.replace("+","")
+print(france_prev_confim)
+france_dead = france[4].text.strip()
+print(france_dead)
+france_prev_dead = france[5].text.strip()
+france_prev_dead = france_prev_dead.replace("+","")
+print(france_prev_dead)
+france_rescued = france[6].text.strip()
+print(france_rescued)
+france_active = france[8].text.strip()
+print(france_active)
 
 
 ##이란
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[10][0])
+print("this iran")
+
+iran_all = all_country[10][0]
+iran = iran_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(iran_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+iran_confim = iran[2].text.strip()
+print(iran_confim)
+iran_prev_confim = iran[3].text.strip()
+iran_prev_confim = iran_prev_confim.replace("+","")
+print(iran_prev_confim)
+iran_dead = iran[4].text.strip()
+print(iran_dead)
+iran_prev_dead = iran[5].text.strip()
+iran_prev_dead = iran_prev_dead.replace("+","")
+print(iran_prev_dead)
+iran_rescued = iran[6].text.strip()
+print(iran_rescued)
+iran_active = iran[8].text.strip()
+print(iran_active)
 
 
 ##중국
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[214][0])
+print("this china")
 
+china_all = all_country[214][0]
+china = china_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(china_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+china_confim = china[2].text.strip()
+print(china_confim)
+china_prev_confim = china[3].text.strip()
+china_prev_confim = china_prev_confim.replace("+","")
+print(china_prev_confim)
+china_dead = china[4].text.strip()
+print(china_dead)
+china_prev_dead = china[5].text.strip()
+china_prev_dead = china_prev_dead.replace("+","")
+print(china_prev_dead)
+china_rescued = china[6].text.strip()
+print(china_rescued)
+china_active = china[8].text.strip()
+print(china_active)
 
 ##캐나다
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[10][0])
+print("this canada")
 
+canada_all = all_country[10][0]
+canada = canada_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(canada_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+canada_confim = canada[2].text.strip()
+print(canada_confim)
+canada_prev_confim = canada[3].text.strip()
+canada_prev_confim = canada_prev_confim.replace("+","")
+print(canada_prev_confim)
+canada_dead = canada[4].text.strip()
+print(canada_dead)
+canada_prev_dead = canada[5].text.strip()
+canada_prev_dead = canada_prev_dead.replace("+","")
+print(canada_prev_dead)
+canada_rescued = canada[6].text.strip()
+print(canada_rescued)
+canada_active = canada[8].text.strip()
+print(canada_active)
 
 ##벨기에
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[245][0])
+print("this belgium")
+
+belgium_all = all_country[245][0]
+belgium = belgium_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(belgium_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+belgium_confim = belgium[2].text.strip()
+print(belgium_confim)
+belgium_prev_confim = belgium[3].text.strip()
+belgium_prev_confim = belgium_prev_confim.replace("+","")
+print(belgium_prev_confim)
+belgium_dead = belgium[4].text.strip()
+print(belgium_dead)
+belgium_prev_dead = belgium[5].text.strip()
+belgium_prev_dead = belgium_prev_dead.replace("+","")
+print(belgium_prev_dead)
+belgium_rescued = belgium[6].text.strip()
+print(belgium_rescued)
+belgium_active = belgium[8].text.strip()
+print(belgium_active)
 
 
 ##네덜란드
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[252][0])
+print("this nederlands")
+
+nederlands_all = all_country[252][0]
+nederlands = nederlands_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(nederlands_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+nederlands_confim = nederlands[2].text.strip()
+print(nederlands_confim)
+nederlands_prev_confim = nederlands[3].text.strip()
+nederlands_prev_confim = nederlands_prev_confim.replace("+","")
+print(nederlands_prev_confim)
+nederlands_dead = nederlands[4].text.strip()
+print(nederlands_dead)
+nederlands_prev_dead = nederlands[5].text.strip()
+nederlands_prev_dead = nederlands_prev_dead.replace("+","")
+print(nederlands_prev_dead)
+nederlands_rescued = nederlands[6].text.strip()
+print(nederlands_rescued)
+nederlands_active = nederlands[8].text.strip()
+print(nederlands_active)
 
 
 
 ##스위스
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[27][0])
+print("this swiss")
+
+swiss_all = all_country[27][0]
+swiss = swiss_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(swiss_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+swiss_confim = swiss[2].text.strip()
+print(swiss_confim)
+swiss_prev_confim = swiss[3].text.strip()
+swiss_prev_confim = swiss_prev_confim.replace("+","")
+print(swiss_prev_confim)
+swiss_dead = swiss[4].text.strip()
+print(swiss_dead)
+swiss_prev_dead = swiss[5].text.strip()
+swiss_prev_dead = swiss_prev_dead.replace("+","")
+print(swiss_prev_dead)
+swiss_rescued = swiss[6].text.strip()
+print(swiss_rescued)
+swiss_active = swiss[8].text.strip()
+print(swiss_active)
 
 
 
 ##인도네시아
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[31][0])
+print("this indonesia")
 
+indonesia_all = all_country[31][0]
+indonesia = indonesia_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(indonesia_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+indonesia_confim = indonesia[2].text.strip()
+print(indonesia_confim)
+indonesia_prev_confim = indonesia[3].text.strip()
+indonesia_prev_confim = indonesia_prev_confim.replace("+","")
+print(indonesia_prev_confim)
+indonesia_dead = indonesia[4].text.strip()
+print(indonesia_dead)
+indonesia_prev_dead = indonesia[5].text.strip()
+indonesia_prev_dead = indonesia_prev_dead.replace("+","")
+print(indonesia_prev_dead)
+indonesia_rescued = indonesia[6].text.strip()
+print(indonesia_rescued)
+indonesia_active = indonesia[8].text.strip()
+print(indonesia_active)
 
 
 ##일본
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[271][0])
+print("this japan")
+
+japan_all = all_country[271][0]
+japan = japan_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(japan_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+japan_confim = japan[2].text.strip()
+print(japan_confim)
+japan_prev_confim = japan[3].text.strip()
+japan_prev_confim = japan_prev_confim.replace("+","")
+print(japan_prev_confim)
+japan_dead = japan[4].text.strip()
+print(japan_dead)
+japan_prev_dead = japan[5].text.strip()
+japan_prev_dead = japan_prev_dead.replace("+","")
+print(japan_prev_dead)
+japan_rescued = japan[6].text.strip()
+print(japan_rescued)
+japan_active = japan[8].text.strip()
+print(japan_active)
 
 
 ##필리핀
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[41][0])
+print("this philippines")
+
+philippines_all = all_country[41][0]
+philippines = philippines_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(philippines_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+philippines_confim = philippines[2].text.strip()
+print(philippines_confim)
+philippines_prev_confim = philippines[3].text.strip()
+philippines_prev_confim = philippines_prev_confim.replace("+","")
+print(philippines_prev_confim)
+philippines_dead = philippines[4].text.strip()
+print(philippines_dead)
+philippines_prev_dead = philippines[5].text.strip()
+philippines_prev_dead = philippines_prev_dead.replace("+","")
+print(philippines_prev_dead)
+philippines_rescued = philippines[6].text.strip()
+print(philippines_rescued)
+philippines_active = philippines[8].text.strip()
+print(philippines_active)
 
 
 
 ##태국
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[137][0])
+print("this thailand")
+
+thailand_all = all_country[245][0]
+thailand =thailand_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(thailand_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+thailand_confim = thailand[2].text.strip()
+print(thailand_confim)
+thailand_prev_confim = thailand[3].text.strip()
+thailand_prev_confim = thailand_prev_confim.replace("+","")
+print(thailand_prev_confim)
+thailand_dead = thailand[4].text.strip()
+print(thailand_dead)
+thailand_prev_dead = thailand[5].text.strip()
+thailand_prev_dead = thailand_prev_dead.replace("+","")
+print(thailand_prev_dead)
+thailand_rescued = thailand[6].text.strip()
+print(thailand_rescued)
+thailand_active = thailand[8].text.strip()
+print(thailand_active)
 
 
 
 ##베트남
-usa = w_soup.find_all('tr')
-usa_all = usa[9]
-usa_all = usa_all.find_all('td')
-usa_confim = usa_all[2].text.strip()
-usa_prev_confim = usa_all[3].text.strip()
-usa_prev_confim = usa_prev_confim.replace("+","")
-usa_dead = usa_all[4].text.strip()
-usa_prev_dead = usa_all[5].text.strip()
-usa_prev_dead = usa_prev_dead.replace("+","")
-usa_resued = usa_all[6].text.strip()
-usa_active = usa_all[7].text.strip()
+print(all_country[145][0])
+print("this vietnam")
+
+vietnam_all = all_country[245][0]
+vietnam = vietnam_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
+print(vietnam_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
+                           # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
+vietnam_confim = vietnam[2].text.strip()
+print(vietnam_confim)
+vietnam_prev_confim = vietnam[3].text.strip()
+vietnam_prev_confim = vietnam_prev_confim.replace("+","")
+print(vietnam_prev_confim)
+vietnam_dead = vietnam[4].text.strip()
+print(vietnam_dead)
+vietnam_prev_dead = vietnam[5].text.strip()
+vietnam_prev_dead = vietnam_prev_dead.replace("+","")
+print(vietnam_prev_dead)
+vietnam_rescued = vietnam[6].text.strip()
+print(vietnam_rescued)
+vietnam_active = vietnam[8].text.strip()
+print(vietnam_active)
 
 
 
