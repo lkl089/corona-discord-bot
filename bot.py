@@ -81,14 +81,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         # embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
         #id = str(710687517275586580)
         #emoji = client.get_emoji(str(id))
-        emoji = 'U+003AU+0066U+006CU+0061U+0067U+005FU+006BU+0072U+003A'
+        #emoji = 'U+003AU+0066U+006CU+0061U+0067U+005FU+006BU+0072U+003A'
         await message.channel.send(embed=embed)
-        await message.add_reaction(emoji)
+        await message.add_reaction('a:flag_kr:b57d2718c0f2330c0e06166d4b5fb606')
+
 
         async def on_reaction_add(reaction, user):
             if reaction.emoji == ':flag_kr:':
-                message.add_react(':flag_kr:')
-                message.add_react(':globe_with_meridians:')
+                message.reaction(':flag_kr:')
+                message.reaction(':globe_with_meridians:')
 
 
 
@@ -117,7 +118,9 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         # print(mask_info)
 
         i = 1;
-
+        stop = []
+        stop_c = []
+        stop_sell = 0
         for i in range(int(store_count) + 1):
             if i == store_count:
                 print('mask info end')
@@ -128,7 +131,6 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             stock = mask_info[i]
             lat = mask_info[i]
             lng = mask_info[i]
-
             location = str(lat['lat']) + ',' + str(lng['lng'])
             mark.append(location)
             # print(mark)

@@ -210,10 +210,10 @@ print(turkey_active)
 
 
 ##프랑스
-print(all_country[239][0])
+print(all_country[11][0])
 print("this france")
 
-france_all = all_country[239][0]
+france_all = all_country[11][0]
 france = france_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진자수 [3]= 전일대비확진자증가수 [4]=사망자수
 print(france_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
