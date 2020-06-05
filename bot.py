@@ -66,7 +66,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
         embed.add_field(name="!국가목록", value="주요 확진국가들의 확진자 정보를 알려줍니다\n"+
-                        "예시) !미국, !영국, !프랑스", inline=False)
+                        "입력 예시) !미국, !영국, !프랑스, !스페인 ....", inline=False)
         embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
         # embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
         await message.channel.send(embed=embed)
@@ -412,6 +412,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="격리해제", value=world_data.usa_rescued + "명", inline=False)
         embed.add_field(name="격리중", value=world_data.usa_active + "명", inline=False)
         embed.add_field(name="사망자", value=world_data.usa_dead + "명 :small_red_triangle:" + world_data.usa_prev_dead, inline=False)
+        embed.add_field(name="검사대비 확진률", value=world_data.usa_confim_percent + "%",inline=False)
         #        print(today)
         if platform.system() == 'Windows':
             # 윈도우인 경우

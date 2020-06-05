@@ -69,6 +69,7 @@ usa = w_soup.find_all('tr')
 usa_all = usa[9]
 usa_all = usa_all.find_all('td')
 usa_confim = usa_all[2].text.strip()
+usa_confim_rd = usa_confim.replace(",","")
 usa_prev_confim = usa_all[3].text.strip()
 usa_prev_confim = usa_prev_confim.replace("+","")
 usa_dead = usa_all[4].text.strip()
@@ -76,6 +77,14 @@ usa_prev_dead = usa_all[5].text.strip()
 usa_prev_dead = usa_prev_dead.replace("+","")
 usa_rescued = usa_all[6].text.strip()
 usa_active = usa_all[8].text.strip()
+usa_total_test = usa_all[12].text.strip()
+usa_confim_percent = ''
+if usa_total_test == 'N/A':
+    usa_confim_percent = 'N/A (정보없음)'
+else:
+    usa_total_test_rd = usa_total_test.replace(",", "")
+    str(round(float(int(usa_confim_rd) / int(usa_total_test_rd) * int(100)), 2))
+
 
 print(usa)
 print('here!!!')
@@ -97,6 +106,7 @@ UK = UK_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=확진
 print(UK_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 UK_confim = UK[2].text.strip()
+UK_confim_rd = UK_confim.replace(",","")
 print(UK_confim)
 UK_prev_confim = UK[3].text.strip()
 UK_prev_confim = UK_prev_confim.replace("+","")
@@ -110,6 +120,16 @@ UK_rescued = UK[6].text.strip()
 print(UK_rescued)
 UK_active = UK[8].text.strip()
 print(UK_active)
+print(UK[12].text.strip())
+UK_total_test = UK[12].text.strip()
+UK_confim_percent = ''
+if UK[12].text.strip() == 'N/A':
+    UK_confim_percent = 'N/A (정보없음)'
+elif UK[12].text.strip() == '':
+    UK_confim_percent = 'N/A (정보없음)'
+else:
+    UK_total_test_rd = UK_total_test.replace(",", "")
+    UK_confim_percent = str(round(float(int(UK_confim_rd) / int(UK_total_test_rd) * int(100)), 2))
 
 ##스페인
 print(all_country[3][0])
@@ -120,6 +140,7 @@ spain = spain_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=
 print(UK_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 spain_confim = spain[2].text.strip()
+spain_confim_rd = spain_confim.replace(",","")
 print(spain_confim)
 spain_prev_confim = spain[3].text.strip()
 spain_prev_confim = spain_prev_confim.replace("+","")
@@ -133,6 +154,9 @@ spain_rescued = spain[6].text.strip()
 print(spain_rescued)
 spain_active = spain[8].text.strip()
 print(spain_active)
+spain_total_test = spain[12].text.strip()
+spain_total_test_rd = spain_total_test.replace(",","")
+spain_confim_percent = str(round(float(int(spain_confim_rd)/int(spain_total_test_rd)*int(100)),2))
 
 
 ##이탈리아
@@ -144,6 +168,7 @@ italy = italy_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=
 print(italy_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 italy_confim = italy[2].text.strip()
+italy_confim_rd = italy_confim.replace(",","")
 print(italy_confim)
 italy_prev_confim = italy[3].text.strip()
 italy_prev_confim = italy_prev_confim.replace("+","")
@@ -157,6 +182,9 @@ italy_rescued = italy[6].text.strip()
 print(italy_rescued)
 italy_active = italy[8].text.strip()
 print(italy_active)
+italy_total_test = italy[12].text.strip()
+italy_total_test_rd = italy_total_test.replace(",","")
+italy_confim_percent = str(round(float(int(italy_confim_rd)/int(italy_total_test_rd)*int(100)),2))
 
 
 ##독일
@@ -168,6 +196,7 @@ germany = germany_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 
 print(germany_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 germany_confim = germany[2].text.strip()
+germany_confim_rd = germany_confim.replace(",","")
 print(germany_confim)
 germany_prev_confim = germany[3].text.strip()
 germany_prev_confim = germany_prev_confim.replace("+","")
@@ -181,7 +210,9 @@ germany_rescued = germany[6].text.strip()
 print(germany_rescued)
 germany_active = germany[8].text.strip()
 print(germany_active)
-
+germany_total_test = germany[12].text.strip()
+germany_total_test_rd = germany_total_test.replace(",","")
+germany_confim_percent = str(round(float(int(germany_confim_rd)/int(germany_total_test_rd)*int(100)),2))
 
 
 ##터키
@@ -193,6 +224,7 @@ turkey = turkey_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2
 print(turkey_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 turkey_confim = turkey[2].text.strip()
+turkey_confim_rd = turkey_confim.replace(",","")
 print(turkey_confim)
 turkey_prev_confim = turkey[3].text.strip()
 turkey_prev_confim = turkey_prev_confim.replace("+","")
@@ -206,6 +238,9 @@ turkey_rescued = turkey[6].text.strip()
 print(turkey_rescued)
 turkey_active = turkey[8].text.strip()
 print(turkey_active)
+turkey_total_test = turkey[12].text.strip()
+turkey_total_test_rd = turkey_total_test.replace(",","")
+turkey_confim_percent = str(round(float(int(turkey_confim_rd)/int(turkey_total_test_rd)*int(100)),2))
 
 
 
@@ -218,6 +253,7 @@ france = france_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2
 print(france_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 france_confim = france[2].text.strip()
+france_confim_rd = france_confim.replace(",","")
 print(france_confim)
 france_prev_confim = france[3].text.strip()
 france_prev_confim = france_prev_confim.replace("+","")
@@ -231,6 +267,9 @@ france_rescued = france[6].text.strip()
 print(france_rescued)
 france_active = france[8].text.strip()
 print(france_active)
+france_total_test = france[12].text.strip()
+france_total_test_rd = france_total_test.replace(",","")
+france_confim_percent = str(round(float(int(france_confim_rd)/int(france_total_test_rd)*int(100)),2))
 
 
 ##이란
@@ -242,6 +281,7 @@ iran = iran_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=�
 print(iran_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 iran_confim = iran[2].text.strip()
+iran_confim_rd = iran_confim.replace(",","")
 print(iran_confim)
 iran_prev_confim = iran[3].text.strip()
 iran_prev_confim = iran_prev_confim.replace("+","")
@@ -255,6 +295,9 @@ iran_rescued = iran[6].text.strip()
 print(iran_rescued)
 iran_active = iran[8].text.strip()
 print(iran_active)
+iran_total_test = iran[12].text.strip()
+iran_total_test_rd = iran_total_test.replace(",","")
+iran_confim_percent = str(round(float(int(iran_confim_rd)/int(iran_total_test_rd)*int(100)),2))
 
 
 ##중국
@@ -266,6 +309,7 @@ china = china_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=
 print(china_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 china_confim = china[2].text.strip()
+china_confim_rd = china_confim.replace(",","")
 print(china_confim)
 china_prev_confim = china[3].text.strip()
 china_prev_confim = china_prev_confim.replace("+","")
@@ -279,6 +323,9 @@ china_rescued = china[6].text.strip()
 print(china_rescued)
 china_active = china[8].text.strip()
 print(china_active)
+china_total_test = china[12].text.strip()
+china_total_test_rd = china_total_test.replace(",","")
+china_confim_percent = str(round(float(int(china_confim_rd)/int(china_total_test_rd)*int(100)),2))
 
 ##캐나다
 print(all_country[10][0])
@@ -289,6 +336,7 @@ canada = canada_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2
 print(canada_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 canada_confim = canada[2].text.strip()
+canada_confim_rd = canada_confim.replace(",","")
 print(canada_confim)
 canada_prev_confim = canada[3].text.strip()
 canada_prev_confim = canada_prev_confim.replace("+","")
@@ -302,6 +350,9 @@ canada_rescued = canada[6].text.strip()
 print(canada_rescued)
 canada_active = canada[8].text.strip()
 print(canada_active)
+canada_total_test = canada[12].text.strip()
+canada_total_test_rd = canada_total_test.replace(",","")
+canada_confim_percent = str(round(float(int(canada_confim_rd)/int(canada_total_test_rd)*int(100)),2))
 
 ##벨기에
 print(all_country[245][0])
@@ -312,6 +363,7 @@ belgium = belgium_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 
 print(belgium_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 belgium_confim = belgium[2].text.strip()
+belgium_confim_rd = belgium_confim.replace(",","")
 print(belgium_confim)
 belgium_prev_confim = belgium[3].text.strip()
 belgium_prev_confim = belgium_prev_confim.replace("+","")
@@ -325,6 +377,9 @@ belgium_rescued = belgium[6].text.strip()
 print(belgium_rescued)
 belgium_active = belgium[8].text.strip()
 print(belgium_active)
+belgium_total_test = belgium[12].text.strip()
+belgium_total_test_rd = belgium_total_test.replace(",","")
+belgium_confim_percent = str(round(float(int(belgium_confim_rd)/int(belgium_total_test_rd)*int(100)),2))
 
 
 ##네덜란드
@@ -336,6 +391,7 @@ nederlands = nederlands_all.find_all('td') # [0]=순서대로 카운트 [1]=국�
 print(nederlands_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 nederlands_confim = nederlands[2].text.strip()
+nederlands_confim_rd = nederlands_confim.replace(",","")
 print(nederlands_confim)
 nederlands_prev_confim = nederlands[3].text.strip()
 nederlands_prev_confim = nederlands_prev_confim.replace("+","")
@@ -349,6 +405,9 @@ nederlands_rescued = nederlands[6].text.strip()
 print(nederlands_rescued)
 nederlands_active = nederlands[8].text.strip()
 print(nederlands_active)
+nederlands_total_test = nederlands[12].text.strip()
+nederlands_total_test_rd = nederlands_total_test.replace(",","")
+nederlands_confim_percent = str(round(float(int(nederlands_confim_rd)/int(nederlands_total_test_rd)*int(100)),2))
 
 
 
@@ -361,6 +420,7 @@ swiss = swiss_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=
 print(swiss_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 swiss_confim = swiss[2].text.strip()
+swiss_confim_rd = swiss_confim.replace(",","")
 print(swiss_confim)
 swiss_prev_confim = swiss[3].text.strip()
 swiss_prev_confim = swiss_prev_confim.replace("+","")
@@ -374,6 +434,9 @@ swiss_rescued = swiss[6].text.strip()
 print(swiss_rescued)
 swiss_active = swiss[8].text.strip()
 print(swiss_active)
+swiss_total_test = swiss[12].text.strip()
+swiss_total_test_rd = swiss_total_test.replace(",","")
+swiss_confim_percent = str(round(float(int(swiss_confim_rd)/int(swiss_total_test_rd)*int(100)),2))
 
 
 
@@ -386,6 +449,7 @@ indonesia = indonesia_all.find_all('td') # [0]=순서대로 카운트 [1]=국가
 print(indonesia_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 indonesia_confim = indonesia[2].text.strip()
+indonesia_confim_rd = indonesia_confim.replace(",","")
 print(indonesia_confim)
 indonesia_prev_confim = indonesia[3].text.strip()
 indonesia_prev_confim = indonesia_prev_confim.replace("+","")
@@ -399,6 +463,9 @@ indonesia_rescued = indonesia[6].text.strip()
 print(indonesia_rescued)
 indonesia_active = indonesia[8].text.strip()
 print(indonesia_active)
+indonesia_total_test = indonesia[12].text.strip()
+indonesia_total_test_rd = indonesia_total_test.replace(",","")
+indonesia_confim_percent = str(round(float(int(indonesia_confim_rd)/int(indonesia_total_test_rd)*int(100)),2))
 
 
 ##일본
@@ -410,6 +477,7 @@ japan = japan_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 [2]=
 print(japan_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 japan_confim = japan[2].text.strip()
+japan_confim_rd = japan_confim.replace(",","")
 print(japan_confim)
 japan_prev_confim = japan[3].text.strip()
 japan_prev_confim = japan_prev_confim.replace("+","")
@@ -423,6 +491,9 @@ japan_rescued = japan[6].text.strip()
 print(japan_rescued)
 japan_active = japan[8].text.strip()
 print(japan_active)
+japan_total_test = japan[12].text.strip()
+japan_total_test_rd = japan_total_test.replace(",","")
+japan_confim_percent = str(round(float(int(japan_confim_rd)/int(japan_total_test_rd)*int(100)),2))
 
 
 ##필리핀
@@ -434,6 +505,7 @@ philippines = philippines_all.find_all('td') # [0]=순서대로 카운트 [1]=�
 print(philippines_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 philippines_confim = philippines[2].text.strip()
+philippines_confim_rd = philippines_confim.replace(",","")
 print(philippines_confim)
 philippines_prev_confim = philippines[3].text.strip()
 philippines_prev_confim = philippines_prev_confim.replace("+","")
@@ -447,6 +519,9 @@ philippines_rescued = philippines[6].text.strip()
 print(philippines_rescued)
 philippines_active = philippines[8].text.strip()
 print(philippines_active)
+philippines_total_test = philippines[12].text.strip()
+philippines_total_test_rd = philippines_total_test.replace(",","")
+philippines_confim_percent = str(round(float(int(philippines_confim_rd)/int(philippines_total_test_rd)*int(100)),2))
 
 
 
@@ -459,6 +534,7 @@ thailand =thailand_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명
 print(thailand_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 thailand_confim = thailand[2].text.strip()
+thailand_confim_rd = thailand_confim.replace(",","")
 print(thailand_confim)
 thailand_prev_confim = thailand[3].text.strip()
 thailand_prev_confim = thailand_prev_confim.replace("+","")
@@ -472,6 +548,9 @@ thailand_rescued = thailand[6].text.strip()
 print(thailand_rescued)
 thailand_active = thailand[8].text.strip()
 print(thailand_active)
+thailand_total_test = thailand[12].text.strip()
+thailand_total_test_rd = thailand_total_test.replace(",","")
+thailand_confim_percent = str(round(float(int(thailand_confim_rd)/int(thailand_total_test_rd)*int(100)),2))
 
 
 
@@ -484,6 +563,7 @@ vietnam = vietnam_all.find_all('td') # [0]=순서대로 카운트 [1]=국가명 
 print(vietnam_all)              # [5]=전일대비증가수 [6]=완치자수 [7]=격리자수 [8]=중증환자수 [9]=인구 백만명대비 검사수
                            # [10]=인구 백만명대비 사망자수 [11]=총검사수 [12]=인구 백만명 대비 검사수 [13]=인구수
 vietnam_confim = vietnam[2].text.strip()
+vietnam_confim_rd = vietnam_confim.replace(",","")
 print(vietnam_confim)
 vietnam_prev_confim = vietnam[3].text.strip()
 vietnam_prev_confim = vietnam_prev_confim.replace("+","")
@@ -497,7 +577,9 @@ vietnam_rescued = vietnam[6].text.strip()
 print(vietnam_rescued)
 vietnam_active = vietnam[8].text.strip()
 print(vietnam_active)
-
+vietnam_total_test = vietnam[12].text.strip()
+vietnam_total_test_rd = vietnam_total_test.replace(",","")
+vietnam_confim_percent = str(round(float(int(vietnam_confim_rd)/int(vietnam_total_test_rd)*int(100)),2))
 
 
 ##대륙별

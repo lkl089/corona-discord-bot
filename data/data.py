@@ -50,12 +50,13 @@ tds_r = table_r[1].find_all('td')
 prev_rescured = tds_r[20].text.strip()
 #print(prev_rescured)
 
-#전일대비 격리자 증가수
-#table_cure = soup.find_all('div', {'class': 'hdn'})
-#print(table_cure)
-#tds_cure = table_cure.find_all('td')
-#prev_cure = tds_cure[20].text.strip()
-#print(prev_rescured)
+#누적 검사 완료수
+table_total_test = soup.find_all('div', {'class': 'info_core'})
+print(table_total_test)
+tds_total_test = table_total_test.find_all('span')
+kr_total_test = tds_total_test[4].text.strip()
+print(kr_total_test)
+print()
 
 #전일대비 사망자 증가수
 table_d = soup2.find('div', {'class': 'liveNum'})
