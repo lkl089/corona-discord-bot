@@ -36,7 +36,7 @@ for message in client.guilds:
 async def on_ready():
     print("봇 시작")
     #
-    await bt(['!명령어 입력시 명령어목록을 확인할수 있습니다.','한국 확진자수 : ' + korea.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
+    await bt(['!명령어 로 명령어를 확인할수 있습니다.','한국 확진자수 : ' + korea.confirmed + '명', '아시아 확진자수 : ' + world_data.as_confirmed + '명',
               '유럽 확진자수 : ' + world_data.eu_confirmed + '명', '북미 확진자수 : ' + world_data.na_confirmed + '명',
               '남미 확진자수 : ' + world_data.sa_confirmed + '명', '아프리카 확진자수 : ' + world_data.af_confirmed + '명',
               '오세아니아 확진자수 : ' + world_data.oc_confirmed + '명', '만든사람 : KJH'])
@@ -61,11 +61,12 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         return None  # 반응하지 않고 구문을 종료합니다.
 
     if message.content == prefix + "명령어":
-        embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
+        embed = discord.Embed(title="명령어 목록", description="현재 사용할수있는 명령어입니다.", color=0x62c1cc)
         embed.add_field(name="!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
         embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
-        embed.add_field(name="!국가목록", value="[추가예정]각 국가명 입력시 해당 국가의 코로나 상황을 알려줍니다.", inline=False)
+        embed.add_field(name="!국가목록", value="주요 확진국가들의 확진자 정보를 알려줍니다\n"+
+                        "예시) !미국, !영국, !프랑스", inline=False)
         embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
         # embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
         await message.channel.send(embed=embed)

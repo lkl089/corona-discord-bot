@@ -58,7 +58,7 @@ print(dead)
 plt.bar(range(len(confimed)), confimed,color='red', alpha=0.5)
 
 
-plt.legend(['확진자'])
+plt.legend(['확진자 (명)'])
 
 #plt.xlabel('국가')                  # x축 라벨
 #plt.ylabel('확진자')                  # y축 라벨

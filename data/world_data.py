@@ -46,7 +46,7 @@ w_rescued = w_tds[6].text.strip()
 print(w_rescued)
 
 #전세계 치료중인자
-w_active = w_tds[7].text.strip()
+w_active = w_tds[8].text.strip()
 print(w_active)
 print("world end")
 print("=======")

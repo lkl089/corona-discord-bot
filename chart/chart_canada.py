@@ -38,7 +38,7 @@ xticks=['',week.day6, week.day5, week.day4, week.day3, week.day2, week.day1, wee
 plt.xticks(locs, xticks)
 plt.xticks(locs,xticks)
 
-plt.legend(['확진자'])
+plt.legend(['확진자 (명)'])
 
 plt.draw()
 fig = plt.gcf()
