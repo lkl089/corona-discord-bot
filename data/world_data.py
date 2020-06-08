@@ -83,7 +83,7 @@ if usa_total_test == 'N/A':
     usa_confim_percent = 'N/A (정보없음)'
 else:
     usa_total_test_rd = usa_total_test.replace(",", "")
-    str(round(float(int(usa_confim_rd) / int(usa_total_test_rd) * int(100)), 2))
+    usa_confim_percent = str(round(float(int(usa_confim_rd) / int(usa_total_test_rd) * int(100)), 2))
 
 
 print(usa)
@@ -155,8 +155,14 @@ print(spain_rescued)
 spain_active = spain[8].text.strip()
 print(spain_active)
 spain_total_test = spain[12].text.strip()
-spain_total_test_rd = spain_total_test.replace(",","")
-spain_confim_percent = str(round(float(int(spain_confim_rd)/int(spain_total_test_rd)*int(100)),2))
+spain_confim_percent = ''
+if spain[12].text.strip() == 'N/A':
+    spain_confim_percent = 'N/A (정보없음)'
+elif spain[12].text.strip() == '':
+    spain_confim_percent = 'N/A (정보없음)'
+else:
+    spain_total_test_rd = spain_total_test.replace(",", "")
+    spain_confim_percent = str(round(float(int(spain_confim_rd) / int(spain_total_test_rd) * int(100)), 2))
 
 
 ##이탈리아
@@ -183,8 +189,14 @@ print(italy_rescued)
 italy_active = italy[8].text.strip()
 print(italy_active)
 italy_total_test = italy[12].text.strip()
-italy_total_test_rd = italy_total_test.replace(",","")
-italy_confim_percent = str(round(float(int(italy_confim_rd)/int(italy_total_test_rd)*int(100)),2))
+italy_confim_percent = ''
+if italy[12].text.strip() == 'N/A':
+    italy_confim_percent = 'N/A (정보없음)'
+elif italy[12].text.strip() == '':
+    italy_confim_percent = 'N/A (정보없음)'
+else:
+    italy_total_test_rd = italy_total_test.replace(",", "")
+    italy_confim_percent = str(round(float(int(italy_confim_rd) / int(italy_total_test_rd) * int(100)), 2))
 
 
 ##독일
@@ -211,8 +223,14 @@ print(germany_rescued)
 germany_active = germany[8].text.strip()
 print(germany_active)
 germany_total_test = germany[12].text.strip()
-germany_total_test_rd = germany_total_test.replace(",","")
-germany_confim_percent = str(round(float(int(germany_confim_rd)/int(germany_total_test_rd)*int(100)),2))
+germany_confim_percent = ''
+if germany[12].text.strip() == 'N/A':
+    germany_confim_percent = 'N/A (정보없음)'
+elif germany[12].text.strip() == '':
+    germany_confim_percent = 'N/A (정보없음)'
+else:
+    germany_total_test_rd = germany_total_test.replace(",", "")
+    germany_confim_percent = str(round(float(int(germany_confim_rd) / int(germany_total_test_rd) * int(100)), 2))
 
 
 ##터키
@@ -239,8 +257,14 @@ print(turkey_rescued)
 turkey_active = turkey[8].text.strip()
 print(turkey_active)
 turkey_total_test = turkey[12].text.strip()
-turkey_total_test_rd = turkey_total_test.replace(",","")
-turkey_confim_percent = str(round(float(int(turkey_confim_rd)/int(turkey_total_test_rd)*int(100)),2))
+turkey_confim_percent = ''
+if turkey[12].text.strip() == 'N/A':
+    turkey_confim_percent = 'N/A (정보없음)'
+elif turkey[12].text.strip() == '':
+    turkey_confim_percent = 'N/A (정보없음)'
+else:
+    turkey_total_test_rd = turkey_total_test.replace(",", "")
+    turkey_confim_percent = str(round(float(int(turkey_confim_rd) / int(turkey_total_test_rd) * int(100)), 2))
 
 
 
@@ -268,8 +292,14 @@ print(france_rescued)
 france_active = france[8].text.strip()
 print(france_active)
 france_total_test = france[12].text.strip()
-france_total_test_rd = france_total_test.replace(",","")
-france_confim_percent = str(round(float(int(france_confim_rd)/int(france_total_test_rd)*int(100)),2))
+france_confim_percent = ''
+if france[12].text.strip() == 'N/A':
+    france_confim_percent = 'N/A (정보없음)'
+elif france[12].text.strip() == '':
+    france_confim_percent = 'N/A (정보없음)'
+else:
+    france_total_test_rd = france_total_test.replace(",", "")
+    france_confim_percent = str(round(float(int(france_confim_rd) / int(france_total_test_rd) * int(100)), 2))
 
 
 ##이란
@@ -296,8 +326,14 @@ print(iran_rescued)
 iran_active = iran[8].text.strip()
 print(iran_active)
 iran_total_test = iran[12].text.strip()
-iran_total_test_rd = iran_total_test.replace(",","")
-iran_confim_percent = str(round(float(int(iran_confim_rd)/int(iran_total_test_rd)*int(100)),2))
+iran_confim_percent = ''
+if iran[12].text.strip() == 'N/A':
+    iran_confim_percent = 'N/A (정보없음)'
+elif iran[12].text.strip() == '':
+    iran_confim_percent = 'N/A (정보없음)'
+else:
+    iran_total_test_rd = france_total_test.replace(",", "")
+    iran_confim_percent = str(round(float(int(iran_confim_rd) / int(iran_total_test_rd) * int(100)), 2))
 
 
 ##중국
@@ -324,8 +360,14 @@ print(china_rescued)
 china_active = china[8].text.strip()
 print(china_active)
 china_total_test = china[12].text.strip()
-china_total_test_rd = china_total_test.replace(",","")
-china_confim_percent = str(round(float(int(china_confim_rd)/int(china_total_test_rd)*int(100)),2))
+china_confim_percent = ''
+if china[12].text.strip() == 'N/A':
+    china_confim_percent = 'N/A (정보없음)'
+elif china[12].text.strip() == '':
+    china_confim_percent = 'N/A (정보없음)'
+else:
+    china_total_test_rd = china_total_test.replace(",", "")
+    china_confim_percent = str(round(float(int(china_confim_rd) / int(china_total_test_rd) * int(100)), 2))
 
 ##캐나다
 print(all_country[10][0])
@@ -351,8 +393,14 @@ print(canada_rescued)
 canada_active = canada[8].text.strip()
 print(canada_active)
 canada_total_test = canada[12].text.strip()
-canada_total_test_rd = canada_total_test.replace(",","")
-canada_confim_percent = str(round(float(int(canada_confim_rd)/int(canada_total_test_rd)*int(100)),2))
+canada_confim_percent = ''
+if canada[12].text.strip() == 'N/A':
+    canada_confim_percent = 'N/A (정보없음)'
+elif canada[12].text.strip() == '':
+    canada_confim_percent = 'N/A (정보없음)'
+else:
+    canada_total_test_rd = canada_total_test.replace(",", "")
+    canada_confim_percent = str(round(float(int(canada_confim_rd) / int(canada_total_test_rd) * int(100)), 2))
 
 ##벨기에
 print(all_country[245][0])
@@ -378,8 +426,14 @@ print(belgium_rescued)
 belgium_active = belgium[8].text.strip()
 print(belgium_active)
 belgium_total_test = belgium[12].text.strip()
-belgium_total_test_rd = belgium_total_test.replace(",","")
-belgium_confim_percent = str(round(float(int(belgium_confim_rd)/int(belgium_total_test_rd)*int(100)),2))
+belgium_confim_percent = ''
+if belgium[12].text.strip() == 'N/A':
+    belgium_confim_percent = 'N/A (정보없음)'
+elif belgium[12].text.strip() == '':
+    belgium_confim_percent = 'N/A (정보없음)'
+else:
+    belgium_total_test_rd = belgium_total_test.replace(",", "")
+    belgium_confim_percent = str(round(float(int(belgium_confim_rd) / int(belgium_total_test_rd) * int(100)), 2))
 
 
 ##네덜란드
@@ -406,8 +460,14 @@ print(nederlands_rescued)
 nederlands_active = nederlands[8].text.strip()
 print(nederlands_active)
 nederlands_total_test = nederlands[12].text.strip()
-nederlands_total_test_rd = nederlands_total_test.replace(",","")
-nederlands_confim_percent = str(round(float(int(nederlands_confim_rd)/int(nederlands_total_test_rd)*int(100)),2))
+nederlands_confim_percent = ''
+if nederlands[12].text.strip() == 'N/A':
+    nederlands_confim_percent = 'N/A (정보없음)'
+elif nederlands[12].text.strip() == '':
+    nederlands_confim_percent = 'N/A (정보없음)'
+else:
+    nederlands_total_test_rd = nederlands_total_test.replace(",", "")
+    nederlands_confim_percent = str(round(float(int(nederlands_confim_rd) / int(nederlands_total_test_rd) * int(100)), 2))
 
 
 
@@ -435,8 +495,14 @@ print(swiss_rescued)
 swiss_active = swiss[8].text.strip()
 print(swiss_active)
 swiss_total_test = swiss[12].text.strip()
-swiss_total_test_rd = swiss_total_test.replace(",","")
-swiss_confim_percent = str(round(float(int(swiss_confim_rd)/int(swiss_total_test_rd)*int(100)),2))
+swiss_confim_percent = ''
+if swiss[12].text.strip() == 'N/A':
+    swiss_confim_percent = 'N/A (정보없음)'
+elif swiss[12].text.strip() == '':
+    swiss_confim_percent = 'N/A (정보없음)'
+else:
+    swiss_total_test_rd = swiss_total_test.replace(",", "")
+    swiss_confim_percent = str(round(float(int(swiss_confim_rd) / int(swiss_total_test_rd) * int(100)), 2))
 
 
 
@@ -464,8 +530,14 @@ print(indonesia_rescued)
 indonesia_active = indonesia[8].text.strip()
 print(indonesia_active)
 indonesia_total_test = indonesia[12].text.strip()
-indonesia_total_test_rd = indonesia_total_test.replace(",","")
-indonesia_confim_percent = str(round(float(int(indonesia_confim_rd)/int(indonesia_total_test_rd)*int(100)),2))
+indonesia_confim_percent = ''
+if indonesia[12].text.strip() == 'N/A':
+    indonesia_confim_percent = 'N/A (정보없음)'
+elif indonesia[12].text.strip() == '':
+    indonesia_confim_percent = 'N/A (정보없음)'
+else:
+    indonesia_total_test_rd = indonesia_total_test.replace(",", "")
+    indonesia_confim_percent = str(round(float(int(indonesia_confim_rd) / int(indonesia_total_test_rd) * int(100)), 2))
 
 
 ##일본
@@ -492,8 +564,14 @@ print(japan_rescued)
 japan_active = japan[8].text.strip()
 print(japan_active)
 japan_total_test = japan[12].text.strip()
-japan_total_test_rd = japan_total_test.replace(",","")
-japan_confim_percent = str(round(float(int(japan_confim_rd)/int(japan_total_test_rd)*int(100)),2))
+japan_confim_percent = ''
+if japan[12].text.strip() == 'N/A':
+    japan_confim_percent = 'N/A (정보없음)'
+elif japan[12].text.strip() == '':
+    japan_confim_percent = 'N/A (정보없음)'
+else:
+    japan_total_test_rd = japan_total_test.replace(",", "")
+    japan_confim_percent = str(round(float(int(japan_confim_rd) / int(japan_total_test_rd) * int(100)), 2))
 
 
 ##필리핀
@@ -520,8 +598,14 @@ print(philippines_rescued)
 philippines_active = philippines[8].text.strip()
 print(philippines_active)
 philippines_total_test = philippines[12].text.strip()
-philippines_total_test_rd = philippines_total_test.replace(",","")
-philippines_confim_percent = str(round(float(int(philippines_confim_rd)/int(philippines_total_test_rd)*int(100)),2))
+philippines_confim_percent = ''
+if philippines[12].text.strip() == 'N/A':
+    philippines_confim_percent = 'N/A (정보없음)'
+elif philippines[12].text.strip() == '':
+    philippines_confim_percent = 'N/A (정보없음)'
+else:
+    philippines_total_test_rd = philippines_total_test.replace(",", "")
+    philippines_confim_percent = str(round(float(int(philippines_confim_rd) / int(philippines_total_test_rd) * int(100)), 2))
 
 
 
@@ -549,8 +633,14 @@ print(thailand_rescued)
 thailand_active = thailand[8].text.strip()
 print(thailand_active)
 thailand_total_test = thailand[12].text.strip()
-thailand_total_test_rd = thailand_total_test.replace(",","")
-thailand_confim_percent = str(round(float(int(thailand_confim_rd)/int(thailand_total_test_rd)*int(100)),2))
+thailand_confim_percent = ''
+if thailand[12].text.strip() == 'N/A':
+    thailand_confim_percent = 'N/A (정보없음)'
+elif thailand[12].text.strip() == '':
+    thailand_confim_percent = 'N/A (정보없음)'
+else:
+    thailand_total_test_rd = thailand_total_test.replace(",", "")
+    thailand_confim_percent = str(round(float(int(thailand_confim_rd) / int(thailand_total_test_rd) * int(100)), 2))
 
 
 
@@ -578,8 +668,14 @@ print(vietnam_rescued)
 vietnam_active = vietnam[8].text.strip()
 print(vietnam_active)
 vietnam_total_test = vietnam[12].text.strip()
-vietnam_total_test_rd = vietnam_total_test.replace(",","")
-vietnam_confim_percent = str(round(float(int(vietnam_confim_rd)/int(vietnam_total_test_rd)*int(100)),2))
+vietnam_confim_percent = ''
+if vietnam[12].text.strip() == 'N/A':
+    vietnam_confim_percent = 'N/A (정보없음)'
+elif vietnam[12].text.strip() == '':
+    vietnam_confim_percent = 'N/A (정보없음)'
+else:
+    vietnam_total_test_rd = vietnam_total_test.replace(",", "")
+    vietnam_confim_percent = str(round(float(int(vietnam_confim_rd) / int(vietnam_total_test_rd) * int(100)), 2))
 
 
 ##대륙별

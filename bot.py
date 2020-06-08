@@ -261,6 +261,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="격리해제", value=korea.rescued + "명 :small_red_triangle:" + korea.prev_rescured, inline=False)
         embed.add_field(name="격리중", value=korea.cure + "명", inline=False)
         embed.add_field(name="사망자", value=korea.dead + "명 :small_red_triangle:" + korea.prev_death, inline=False)
+        embed.add_field(name="검사대비 확진률", value=korea.kr_confim_percent + "%", inline=False)
         embed.set_image(url="http://ncov.mohw.go.kr/static/image/main_chart/live_pdata1_" + today + ".png")
         #        print(today)
         if platform.system() == 'Windows':
@@ -461,6 +462,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.spain_dead + "명 :small_red_triangle:" + world_data.spain_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.spain_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -484,6 +486,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             value=world_data.italy_active + "명",inline=False)
             embed.add_field(name="사망자", value=world_data.italy_dead + "명 :small_red_triangle:" + world_data.italy_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.italy_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -508,6 +511,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.germany_dead + "명 :small_red_triangle:" + world_data.germany_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.germany_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -532,6 +536,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.turkey_dead + "명 :small_red_triangle:" + world_data.turkey_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.turky_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -556,6 +561,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.france_dead + "명 :small_red_triangle:" + world_data.france_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.france_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -580,6 +586,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.iran_dead + "명 :small_red_triangle:" + world_data.iran_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.iran_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -604,6 +611,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.china_dead + "명 :small_red_triangle:" + world_data.china_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.china_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -628,6 +636,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.canada_dead + "명 :small_red_triangle:" + world_data.canada_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.canada_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -652,6 +661,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.belgium_dead + "명 :small_red_triangle:" + world_data.belgium_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.belgium_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -677,6 +687,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.nederlands_dead + "명 :small_red_triangle:" + world_data.nederlands_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.nederlands_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -701,6 +712,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.swiss_dead + "명 :small_red_triangle:" + world_data.swiss_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.swiss_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -725,6 +737,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.indonesia_dead + "명 :small_red_triangle:" + world_data.indonesia_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.indonesia_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -749,6 +762,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.japan_dead + "명 :small_red_triangle:" + world_data.japan_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.japan_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -773,6 +787,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.philippines_dead + "명 :small_red_triangle:" + world_data.philippines_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.philippines_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -797,6 +812,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.thailand_dead + "명 :small_red_triangle:" + world_data.thailand_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.thailand_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -821,6 +837,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.vietnam_dead + "명 :small_red_triangle:" + world_data.vietnam_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.vietnam_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
