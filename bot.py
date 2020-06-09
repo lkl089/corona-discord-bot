@@ -64,7 +64,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed = discord.Embed(title="명령어 목록", description="현재 사용할수있는 명령어입니다.", color=0x62c1cc)
         embed.add_field(name=":point_right:!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
         embed.add_field(name=":point_right:!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
-        embed.add_field(name=":point_right:!정보출처", value="데이터를 가져오는 출처를 알려줍니다.", inline=False)
+        embed.add_field(name=":point_right:!정보출처", value="데이터를 가져오는 사이트를 알려줍니다.", inline=False)
         embed.add_field(name=":point_right:!방역수칙", value="방역수칙 이미지를 불러옵니다", inline=False)
         embed.add_field(name=":point_right:!세계", value="주요 확진국가의 코로나 확진자 정보를 알려줍니다.", inline=False)
         embed.add_field(name="!'국가명'", value="각 확진국가들의 확진자 정보를 알려줍니다\n"+
@@ -80,6 +80,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed = discord.Embed(title="크롤링 정보 출처", description="현재 데이터를 가져오고있는 사이트들입니다.", color=0x62c1cc)
         embed.add_field(name="worldometers", value="https://www.worldometers.info/coronavirus/", inline=False)
         embed.add_field(name="보건복지부", value="http://ncov.mohw.go.kr/", inline=False)
+        embed.add_field(name="공적마스크API", value="https://app.swaggerhub.com/apis-docs/Promptech/public-mask-info/20200307-oas3#/", inline=False)
         await message.channel.send(embed=embed)
 
     if message.content == prefix + "방역수칙":
