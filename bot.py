@@ -62,13 +62,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
     if message.content == prefix + "명령어":
         embed = discord.Embed(title="명령어 목록", description="현재 사용할수있는 명령어입니다.", color=0x62c1cc)
-        embed.add_field(name="!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
-        embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
-        embed.add_field(name="!세계", value="전세계 코로나 확진자 정보를  알려줍니다.", inline=False)
-        embed.add_field(name="!국가목록", value="주요 확진국가들의 확진자 정보를 알려줍니다\n"+
-                        "입력 예시) !미국, !영국, !프랑스, !스페인 ....", inline=False)
-        embed.add_field(name="!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
-        # embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.")
+        embed.add_field(name=":point_right:!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
+        embed.add_field(name=":point_right:!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
+        embed.add_field(name=":point_right:!정보출처", value="데이터를 가져오는 출처를 알려줍니다.", inline=False)
+        embed.add_field(name=":point_right:!방역수칙", value="방역수칙 이미지를 불러옵니다", inline=False)
+        embed.add_field(name=":point_right:!세계", value="주요 확진국가의 코로나 확진자 정보를 알려줍니다.", inline=False)
+        embed.add_field(name="!'국가명'", value="각 확진국가들의 확진자 정보를 알려줍니다\n"+
+                        "주요 확진국가들을 검색할수있습니다.(19개국)\n"+
+                        "입력 예시) :point_right:!미국, !영국, !프랑스, !스페인 ....", inline=False)
+        embed.add_field(name=":point_right:!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
         await message.channel.send(embed=embed)
         # DM으로 메시지를 보냅니다.
         # await message.author.send("응답")
@@ -77,12 +79,12 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "정보출처":
         embed = discord.Embed(title="크롤링 정보 출처", description="현재 데이터를 가져오고있는 사이트들입니다.", color=0x62c1cc)
         embed.add_field(name="worldometers", value="https://www.worldometers.info/coronavirus/", inline=False)
-        embed.set_image(url="https://www.worldometers.info/img/worldometers-logo.gif")
         embed.add_field(name="보건복지부", value="http://ncov.mohw.go.kr/", inline=False)
-        embed.set_image(url="https://www.worldometers.info/img/worldometers-logo.gif")
         await message.channel.send(embed=embed)
 
     if message.content == prefix + "방역수칙":
+
+
         embed = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
         embed2 = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
         if platform.system() == 'Windows':
