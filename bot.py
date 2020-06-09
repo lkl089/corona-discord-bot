@@ -72,6 +72,36 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         await message.channel.send(embed=embed)
         # DM으로 메시지를 보냅니다.
         # await message.author.send("응답")
+
+
+    if message.content == prefix + "정보출처":
+        embed = discord.Embed(title="크롤링 정보 출처", description="현재 데이터를 가져오고있는 사이트들입니다.", color=0x62c1cc)
+        embed.add_field(name="worldometers", value="https://www.worldometers.info/coronavirus/", inline=False)
+        embed.set_image(url="https://www.worldometers.info/img/worldometers-logo.gif")
+        embed.add_field(name="보건복지부", value="http://ncov.mohw.go.kr/", inline=False)
+        embed.set_image(url="https://www.worldometers.info/img/worldometers-logo.gif")
+        await message.channel.send(embed=embed)
+
+    if message.content == prefix + "방역수칙":
+        embed = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
+        embed2 = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
+        if platform.system() == 'Windows':
+            # 윈도우인 경우
+            file = discord.File("./data/life_distance.png", filename="image.png")
+            file2 = discord.File("./data/life_distance2.png", filename="image2.png")
+        else:
+            # 우분투인 경우
+            file = discord.File("/discord-bot/data/life_distance.png", filename="image.png")
+            file2 = discord.File("/discord-bot/data/life_distance2.png", filename="image2.png")
+
+        embed.set_image(url="attachment://image.png")
+        embed.set_footer(text="이미지출처 - 보건복지부")
+        embed2.set_image(url="attachment://image2.png")
+        embed2.set_footer(text="이미지출처 - 보건복지부")
+        await message.channel.send(file=file, embed=embed)
+        await message.channel.send(file=file2, embed=embed2)
+
+
     if message.content == prefix + "목록":
         embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
         embed.add_field(name="!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
@@ -438,6 +468,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.UK_dead + "명 :small_red_triangle:" + world_data.UK_prev_dead,
                             inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.UK_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우
@@ -536,7 +567,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="사망자", value=world_data.turkey_dead + "명 :small_red_triangle:" + world_data.turkey_prev_dead,
                             inline=False)
-            embed.add_field(name="검사대비 확진률", value=world_data.turky_confim_percent + "%", inline=False)
+            embed.add_field(name="검사대비 확진률", value=world_data.turkey_confim_percent + "%", inline=False)
             #        print(today)
             if platform.system() == 'Windows':
                 # 윈도우인 경우

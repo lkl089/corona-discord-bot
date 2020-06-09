@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request
 import urllib.error
+from data import data
 import requests
 
 #base_url = 'https://raw.githubusercontent.com/CSSEGISandData/2019-nCoV/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-%s.csv';
@@ -122,6 +123,8 @@ UK_active = UK[8].text.strip()
 print(UK_active)
 print(UK[12].text.strip())
 UK_total_test = UK[12].text.strip()
+print(UK_total_test)
+print("확인")
 UK_confim_percent = ''
 if UK[12].text.strip() == 'N/A':
     UK_confim_percent = 'N/A (정보없음)'
@@ -257,6 +260,7 @@ print(turkey_rescued)
 turkey_active = turkey[8].text.strip()
 print(turkey_active)
 turkey_total_test = turkey[12].text.strip()
+print(turkey_total_test)
 turkey_confim_percent = ''
 if turkey[12].text.strip() == 'N/A':
     turkey_confim_percent = 'N/A (정보없음)'
@@ -677,6 +681,9 @@ else:
     vietnam_total_test_rd = vietnam_total_test.replace(",", "")
     vietnam_confim_percent = str(round(float(int(vietnam_confim_rd) / int(vietnam_total_test_rd) * int(100)), 2))
 
+confirm_percent = [usa_confim_percent,UK_confim_percent,spain_confim_percent,canada_confim_percent,belgium_confim_percent,china_confim_percent,france_confim_percent,germany_confim_percent,indonesia_confim_percent,iran_confim_percent,italy_confim_percent,japan_confim_percent,data.kr_confim_percent,nederlands_confim_percent,philippines_confim_percent,swiss_confim_percent,thailand_confim_percent,turkey_confim_percent,vietnam_confim_percent]
+sorted(confirm_percent)
+print(confirm_percent)
 
 ##대륙별
 #아시아

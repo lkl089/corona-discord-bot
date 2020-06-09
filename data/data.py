@@ -2,10 +2,10 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request
 import urllib.error
-from data import world_data
-import requests
 
-#mhow
+
+
+#보건복지부
 url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContSeq=&contSeq=&board_id=&gubun="
 html = urllib.request.urlopen(url).read()
 soup = BeautifulSoup(html, 'html.parser')
@@ -17,15 +17,6 @@ html2 = urllib.request.urlopen(url2).read()
 soup2 = BeautifulSoup(html2, 'html.parser')
 #print(soup2)
 
-#coronaboard (임시)
-headers = {'User-Agent':'Chrome/81.0.4044.92'}
-url3 = "https://coronaboard.kr/"
-req = Request(url3, headers=headers)
-#html3 = urllib.request.urlopen(req).read()
-html3 = urllib.request.urlopen(req)
-#soup3 = BeautifulSoup(html3, 'html.parser')
-soup3 = BeautifulSoup(html3, 'html.parser')
-#print(soup3)
 
 #한국 확진자,격리해제,격리자,사망자 정보 가져오기
 table = soup.find('table', {'class': 'num'})
