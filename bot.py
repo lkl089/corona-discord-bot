@@ -86,7 +86,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
     if message.content == prefix + "홍보자료":
 
-        choice = random.randrange(1,6)
+        choice = random.randrange(1,7)
 
         if choice == 1:
 
@@ -176,8 +176,21 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             embed.set_image(url="attachment://image.png")
             embed.set_footer(text="이미지출처 - 보건복지부")
             await message.channel.send(file=file, embed=embed)
-            print("5!")
-        prev_count = choice
+            print("6!")
+
+        if choice == 7:
+            embed = discord.Embed(title="생활속 거리두기 핵심수칙 5가지", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/rule5.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/rule5.png", filename="image.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("7!")
 
     if message.content == prefix + "목록":
         embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
