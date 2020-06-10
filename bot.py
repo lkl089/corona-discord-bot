@@ -624,7 +624,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
             country = "독일"
             embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.germany_confim + "명 :small_red_triangle:" + world_data.germany_prev_confim,
+            embe d.add_field(name="누적 확진자수", value=world_data.germany_confim + "명 :small_red_triangle:" + world_data.germany_prev_confim,
                             inline=False)
             embed.add_field(name="격리해제", value=world_data.germany_rescued + "명", inline=False)
             embed.add_field(name="격리중",
@@ -799,12 +799,11 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
             country = "네덜란드"
             embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
-            embed.add_field(name="누적 확진자수", value=world_data.usa_confim + "명 :small_red_triangle:" + str(
-                int(week.w_2_t_p) - int(week.w_2_1_p)),
+            embed.add_field(name="누적 확진자수", value=world_data.nederlands_confim + "명 :small_red_triangle:" + world_data.nederlands_prev_confim,
                             inline=False)
             embed.add_field(name="격리해제", value=world_data.nederlands_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명",
+                            value=world_data.nederlands_active + "명",
                             inline=False)
             embed.add_field(name="사망자", value=world_data.nederlands_dead + "명 :small_red_triangle:" + world_data.nederlands_prev_dead,
                             inline=False)
@@ -879,7 +878,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="격리해제", value=world_data.japan_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명",
+                            value=world_data.japan_active + "명",
                             inline=False)
             embed.add_field(name="사망자", value=world_data.japan_dead + "명 :small_red_triangle:" + world_data.japan_prev_dead,
                             inline=False)
@@ -902,7 +901,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
             embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
             embed.add_field(name="누적 확진자수", value=world_data.philippines_confim + "명 :small_red_triangle:" + world_data.philippines_prev_confim,
                             inline=False)
-            embed.add_field(name="격리해제", value=world_data.usa_rescued + "명", inline=False)
+            embed.add_field(name="격리해제", value=world_data.philippines_rescued + "명", inline=False)
             embed.add_field(name="격리중",
                             value=world_data.philippines_active + "명",
                             inline=False)
@@ -954,7 +953,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
                             inline=False)
             embed.add_field(name="격리해제", value=world_data.vietnam_rescued + "명", inline=False)
             embed.add_field(name="격리중",
-                            value=world_data.usa_active + "명",
+                            value=world_data.vietnam_active + "명",
                             inline=False)
             embed.add_field(name="사망자", value=world_data.vietnam_dead + "명 :small_red_triangle:" + world_data.vietnam_prev_dead,
                             inline=False)
