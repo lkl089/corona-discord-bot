@@ -13,6 +13,7 @@ import requests
 from urllib.parse import quote
 import urllib.request
 import platform
+import random
 from chart import chart_world,chart_korea,chart_usa,chart_england,chart_belgium,chart_canada,chart_china,chart_france,chart_germany,chart_Indonesia,chart_iran,chart_italy,chart_japan,chart_nederlands,chart_philippines,chart_spain,chart_swiss,chart_thailand,chart_turky,chart_vietnam
 
 client_id = token.client_id
@@ -65,9 +66,9 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name=":point_right:!마스크 '주소'", value="입력한 주소지의 공적마스크 판매처를 알려줍니다.", inline=False)
         embed.add_field(name=":point_right:!한국", value="한국의 코로나 상황을 알려줍니다.", inline=False)
         embed.add_field(name=":point_right:!정보출처", value="데이터를 가져오는 사이트를 알려줍니다.", inline=False)
-        embed.add_field(name=":point_right:!방역수칙", value="방역수칙 이미지를 불러옵니다", inline=False)
+        embed.add_field(name=":point_right:!홍보자료", value="방역수칙 이미지를 불러옵니다", inline=False)
         embed.add_field(name=":point_right:!세계", value="주요 확진국가의 코로나 확진자 정보를 알려줍니다.", inline=False)
-        embed.add_field(name="!'국가명'", value="각 확진국가들의 확진자 정보를 알려줍니다\n"+
+        embed.add_field(name=":point_right:!'국가명'", value="각 확진국가들의 확진자 정보를 알려줍니다\n"+
                         "주요 확진국가들을 검색할수있습니다.(19개국)\n"+
                         "입력 예시) :point_right:!미국, !영국, !프랑스, !스페인 ....", inline=False)
         embed.add_field(name=":point_right:!아시아, !유럽, !북아메리카, !남아메리카, !아프리카, !오세아니아", value="각 대륙별 코로나 상황을 알려줍니다.", inline=False)
@@ -83,27 +84,110 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         embed.add_field(name="공적마스크API", value="https://app.swaggerhub.com/apis-docs/Promptech/public-mask-info/20200307-oas3#/", inline=False)
         await message.channel.send(embed=embed)
 
-    if message.content == prefix + "방역수칙":
+    if message.content == prefix + "홍보자료":
 
+        randcount = [1,2,3,4,5,6]
 
-        embed = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
-        embed2 = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
-        if platform.system() == 'Windows':
-            # 윈도우인 경우
-            file = discord.File("./data/life_distance.png", filename="image.png")
-            file2 = discord.File("./data/life_distance2.png", filename="image2.png")
+        if randcount == []:
+            randcount = [1, 2, 3, 4, 5, 6]
+            print(randcount)
+
         else:
-            # 우분투인 경우
-            file = discord.File("/discord-bot/data/life_distance.png", filename="image.png")
-            file2 = discord.File("/discord-bot/data/life_distance2.png", filename="image2.png")
+            range(len(randcount))
+            choice = random.choice(randcount)
+            randcount.remove(choice)
+            print(choice)
 
-        embed.set_image(url="attachment://image.png")
-        embed.set_footer(text="이미지출처 - 보건복지부")
-        embed2.set_image(url="attachment://image2.png")
-        embed2.set_footer(text="이미지출처 - 보건복지부")
-        await message.channel.send(file=file, embed=embed)
-        await message.channel.send(file=file2, embed=embed2)
+        if choice == 1:
 
+            embed = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
+            embed2 = discord.Embed(title="생활속 거리두기 지침",color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/life_distance.png", filename="image.png")
+                file2 = discord.File("./data/life_distance2.png", filename="image2.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/life_distance.png", filename="image.png")
+                file2 = discord.File("/discord-bot/data/life_distance2.png", filename="image2.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            embed2.set_image(url="attachment://image2.png")
+            embed2.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            await message.channel.send(file=file2, embed=embed2)
+            print("1!")
+
+        if choice == 2:
+            embed = discord.Embed(title="생활속 거리두기 실천", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/how_do_life_diatance.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/how_do_life_diatance.png", filename="image.png")
+            embed.add_field(name="링크", value="http://ncov.mohw.go.kr/guidelineView.do?brdId=6&brdGubun=61&dataGubun=612&ncvContSeq=2575&contSeq=2575&board_id=&gubun=", inline=False)
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("2!")
+        if choice == 3:
+            embed = discord.Embed(title="전자출입명부 (KI-Pass)", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/my_qr.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/my_qr.png", filename="image.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("3!")
+
+        if choice == 4:
+            embed = discord.Embed(title="긴급복지 의료비지원", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/medical_assist.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/medical_assist.png", filename="image.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("4!")
+
+        if choice == 5:
+            embed = discord.Embed(title="수도권 집단감염 대응", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/warning.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/warning.png", filename="image.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("5!")
+
+        if choice == 6:
+            embed = discord.Embed(title="감염병 스트레스 극복", color=0xff6969)
+            if platform.system() == 'Windows':
+                # 윈도우인 경우
+                file = discord.File("./data/stress_tel.png", filename="image.png")
+            else:
+                # 우분투인 경우
+                file = discord.File("/discord-bot/data/stress_tel.png", filename="image.png")
+
+            embed.set_image(url="attachment://image.png")
+            embed.set_footer(text="이미지출처 - 보건복지부")
+            await message.channel.send(file=file, embed=embed)
+            print("5!")
+        prev_count = choice
 
     if message.content == prefix + "목록":
         embed = discord.Embed(title="명령어 목록", description="명령어 목록입니다.", color=0x62c1cc)
