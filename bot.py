@@ -624,7 +624,7 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
             country = "독일"
             embed = discord.Embed(title=month + "월 " + day + "일 " + country + " 코로나 상황 (실시간)", color=0x62c1cc)
-            embe d.add_field(name="누적 확진자수", value=world_data.germany_confim + "명 :small_red_triangle:" + world_data.germany_prev_confim,
+            embed.add_field(name="누적 확진자수", value=world_data.germany_confim + "명 :small_red_triangle:" + world_data.germany_prev_confim,
                             inline=False)
             embed.add_field(name="격리해제", value=world_data.germany_rescued + "명", inline=False)
             embed.add_field(name="격리중",
