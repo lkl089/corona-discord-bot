@@ -87,16 +87,8 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
     if message.content == prefix + "홍보자료":
 
         randcount = [1,2,3,4,5,6]
+        choice = random.choice(randcount)
 
-        if randcount == []:
-            randcount = [1, 2, 3, 4, 5, 6]
-            print(randcount)
-
-        else:
-            range(len(randcount))
-            choice = random.choice(randcount)
-            randcount.remove(choice)
-            print(choice)
 
         if choice == 1:
 
