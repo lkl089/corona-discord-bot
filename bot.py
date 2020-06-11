@@ -347,26 +347,27 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         short_url = url_api['url']
         print(short_url)
 
-        d = ['월', '화', '수', '목', '금', '토', '일']
-        y = datetime.today().weekday()
-        print(d[y])
-        if y == 0:
-            buy_mask = '주민번호 끝자리 1,6년생'
-        elif y == 1:
-            buy_mask = '주민번호 끝자리 2,7년생'
-        elif y == 2:
-            buy_mask = '주민번호 끝자리 3,8년생'
-        elif y == 3:
-            buy_mask = '주민번호 끝자리 4,9년생'
-        elif y == 4:
-            buy_mask = '주민번호 끝자리 5,0년생'
-        elif y == 5:
-            buy_mask = '모든사람'
-        elif y == 6:
-            buy_mask = '모든사람'
+        #d = ['월', '화', '수', '목', '금', '토', '일']
+        #y = datetime.today().weekday()
+        #print(d[y])
+        #if y == 0:
+        #    buy_mask = '주민번호 끝자리 1,6년생'
+        #elif y == 1:
+        #    buy_mask = '주민번호 끝자리 2,7년생'
+        #elif y == 2:
+        #    buy_mask = '주민번호 끝자리 3,8년생'
+        #elif y == 3:
+        #    buy_mask = '주민번호 끝자리 4,9년생'
+        #elif y == 4:
+        #    buy_mask = '주민번호 끝자리 5,0년생'
+        #elif y == 5:
+        #    buy_mask = '모든사람'
+        #elif y == 6:
+        #    buy_mask = '모든사람'
 
         embed = discord.Embed(title=month + "월 " + day + "일 " + " 마스크 상황",
-                              description=d[y] + "요일 마스크 구매는 " + buy_mask + "이 가능합니다\n"
+                              description="6월 1일부터 마스크 5부제 폐지로 인해 \n "+
+                                          "주중 18세이하는 5장, 성인은 3장씩 구매 가능합니다\n"
                                           + '판매 중지 '+str(cnt_stop)+'곳을 제외한 ' + str(int(store_count)-int(cnt_stop)) + '곳에서 구매 가능합니다.\n'
                                           + '전체목록 지도 : ' + short_url, color=0x9fd6f4)
         embed.set_footer(text="기준 주소 : " + str(mask_addr))

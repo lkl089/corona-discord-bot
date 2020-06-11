@@ -20,8 +20,10 @@ soup2 = BeautifulSoup(html2, 'html.parser')
 
 #한국 확진자,격리해제,격리자,사망자 정보 가져오기
 table = soup.find('table', {'class': 'num'})
-#print(table)
+print("한국 확진자정보")
+print(table)
 tds = table.find_all('td')
+print(tds)
 confirmed = tds[0].text.strip()
 rescued = tds[1].text.strip()
 cure = tds[2].text.strip()
