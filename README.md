@@ -1,3 +1,6 @@
+![license](https://img.shields.io/badge/license-MIT-red)
+
+
 코로나 정보 알림봇 
 ============ 
 ### 모바일인터넷과 201540207 김정현
