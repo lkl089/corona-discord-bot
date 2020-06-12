@@ -215,14 +215,15 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
 
 
     if message.content.startswith(prefix + "마스크"):
-        split_addr = message.content.split(maxsplit=1)
+        split_addr = message.content.split(maxsplit=2)
+        print(split_addr)
         len_addr = len(split_addr)
         print(len_addr)
         if len_addr == 1:
             embed = discord.Embed(title="공적 마스크 판매처 조회방법",
                                   description="'!마스크 서울특별시 양천구 신월동' 과 같이 주소를 입력해주세요\n" +
                                               "특별시,광역시의 경우 '시'라고만 적을경우 조회가 안될수 있습니다.\n" +
-                                              "동의 경우 신월2동이면 신월동으로 입력함. (신주소 기반)\n" +
+                                              "동의 경우 신월2동이면 신월동으로 입력함.\n" +
                                               "주소 입력 예시 >> 서울특별시 양천구 신월동 , 부산광역시 북구 구포동 ", color=0x9fd6f4)
             await message.channel.send(embed=embed)
         mask_addr = split_addr[1]
