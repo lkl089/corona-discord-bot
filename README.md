@@ -1,8 +1,8 @@
 # corona-discord-bot
 
- How to use Markdown? 
+ 코로나 정보 알림봇 
 ============ 
-Markdown 
+모바일인터넷과 201540207 김정현
 - 
 can be used as follows. 
 
