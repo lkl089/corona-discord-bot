@@ -1,23 +1,44 @@
 # corona-discord-bot
 
-  
-명령어 목록
-  
-마스크 판매처 검색 : 
+ How to use Markdown? 
+============ 
+Markdown 
+- 
+can be used as follows. 
 
-  !마스크 서울특별시 양천구 신월동
-  
-한국의 코로나 상황 :
+### Blackquotes 
+>Blackquotes1 
+>>Sub Blackquotes2 
 
-  !한국,!현재상황
-  
-세계의 코로나 상황 :
-  
-  !세계
-  
-각 대륙별 코로나 상황 :
+>###header + blackquotes 
 
-  !아시아,!유럽,!아프리카,!남아메리카,!북아메리카,!오세아니아
+
+###Code representation method 
+----- 
+“`var x = 0“` 
+
+var foo = “bar” 
+<html> </html> 
+
+###List representation method 
++ plus 
+* star 
+- hyphen 
+
+###Numeric list representation method 
+1. num1 
+1. num2 
+
+### Hyperlink 
+[blog](blog.naver.com/tpgns8488) 
+
+First Header | Second Header 
+------------ | ------------- 
+Content from cell 1 | Content from cell 2 
+Content in the first column | Content in the second column 
+
+@tpgns8488 :+1: How to use markdown? :tophat: 
+
   
 
 
