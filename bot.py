@@ -221,13 +221,32 @@ async def on_message(message, month=month, day=day, today=checkurl.today, maskin
         print(len_addr)
         if len_addr == 1:
             embed = discord.Embed(title="공적 마스크 판매처 조회방법",
-                                  description="'!마스크 서울특별시 양천구 신월동' 과 같이 주소를 입력해주세요\n" +
-                                              "특별시,광역시의 경우 '시'라고만 적을경우 조회가 안될수 있습니다.\n" +
+                                  description="'!마스크 서울시 양천구 신월동' 과 같이 주소를 입력해주세요\n" +
                                               "동의 경우 신월2동이면 신월동으로 입력함.\n" +
-                                              "주소 입력 예시 >> 서울특별시 양천구 신월동 , 부산광역시 북구 구포동 ", color=0x9fd6f4)
+                                              "주소 입력 예시 >> 서울시 양천구 신월동 , 부산시 북구 구포동 \n"+
+                                              "제주도는 '제주시,제주도,제주특별자치도 연동' 과 같이 입력해주세요", color=0x9fd6f4)
             await message.channel.send(embed=embed)
-        mask_addr = split_addr[1]
-        # print(mask_addr)
+        if split_addr[1] =='서울시':
+            split_addr[1] = '서울특별시 '
+        elif split_addr[1] =='인천시':
+            split_addr[1] = '인천광역시 '
+        elif split_addr[1] == '부산시':
+            split_addr[1] = '부산광역시 '
+        elif split_addr[1] == '광주시':
+            split_addr[1] = '광주광역시 '
+        elif split_addr[1] == '대전시':
+            split_addr[1] = '대전광역시 '
+        elif split_addr[1] == '울산시':
+            split_addr[1] = '울산광역시 '
+        elif split_addr[1] == '제주시':
+            split_addr[1] ='제주특별자치도 제주시 '
+        elif split_addr[1] == '제주도':
+            split_addr[1] ='제주특별자치도 제주시 '
+        elif split_addr[1] == '제주특별자치도':
+            split_addr[1] ='제주특별자치도 제주시 '
+        print(split_addr)
+        mask_addr = "".join(str(split_addr[1])+str(split_addr[2]))
+        print(mask_addr)
         mask_api_addr = 'https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json?address=' + str(
             mask_addr)
         # print(mask_api_addr)
