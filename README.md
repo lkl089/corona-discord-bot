@@ -22,7 +22,9 @@
 + 그 외 툴
 
 >Git
+
 >Github Desktop
+
 >Python IDE (PyCharm, VSCode,...)
 
 ### /data/token.py 파일 생성 
