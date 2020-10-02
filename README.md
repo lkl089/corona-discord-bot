@@ -19,6 +19,12 @@
 
 >pip install discord
 
++ 그 외 툴
+
+>Git
+>Github Desktop
+>Python IDE (PyCharm, VSCode,...)
+
 ### /data/token.py 파일 생성 
 파일을 생성후 아래 내용에 자신의 API를 입력해준다.
 
