@@ -11,11 +11,11 @@
 
 ### 필수 설치 모듈
 
-+BeautifulSoup4
++ BeautifulSoup4
 
 >pip install BeautifulSoup4
 
-+Discord
++ Discord
 
 >pip install discord
 
