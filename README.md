@@ -23,6 +23,10 @@
 
 >pip3 install asyncio
 
++Requests
+
+>pip3 install requests
+
 + 그 외 툴
 
 >Git
