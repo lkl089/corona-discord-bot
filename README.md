@@ -1,5 +1,5 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
-![python](https://img.shields.io/badge/python-v3.7-blue)
+![python](https://img.shields.io/badge/python-v3.8-blue)
 
 코로나 정보 알림봇 
 ============ 
