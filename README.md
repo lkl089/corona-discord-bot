@@ -11,13 +11,13 @@
 
 ### 필수 설치 모듈
 
->BeautifulSoup4
++BeautifulSoup4
 
->>pip install BeautifulSoup4
+>pip install BeautifulSoup4
 
->Discord
++Discord
 
->>pip install discord
+>pip install discord
 
 ### /data/token.py 파일 생성 
 파일을 생성후 아래 내용에 자신의 API를 입력해준다.
