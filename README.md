@@ -13,11 +13,15 @@
 
 + BeautifulSoup4
 
->pip install BeautifulSoup4
+>pip3 install BeautifulSoup4
 
 + Discord
 
->pip install discord
+>pip3 install discord
+
++ Asynico
+
+>pip3 install asyncio
 
 + 그 외 툴
 
