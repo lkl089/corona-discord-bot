@@ -19,6 +19,10 @@
 
 >pip3 install discord
 
++ Matplotlib
+
+>python -m pip install -U matplotlib
+
 + Asynico
 
 >pip3 install asyncio
