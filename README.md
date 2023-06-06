@@ -3,7 +3,7 @@
 
 코로나 정보 알림봇 
 ============ 
-### 대림대학교 모바일인터넷과 201540207 김정현
+### 대림대학교 모바일인터넷과 김정현
 
 디스코드에서 작동하는 봇입니다. 
 
@@ -89,10 +89,6 @@
 ### 봇 초대 링크
 [Link](https://discordapp.com/api/oauth2/authorize?client_id=689139243788140641&permissions=452672&scope=bot) 
 
-First Header | Second Header 
------------- | ------------- 
-Content from cell 1 | Content from cell 2 
-Content in the first column | Content in the second column 
 
 
   
